@@ -11,6 +11,7 @@
               </div>
               <div class="panel-footer text-right">
                 {{#link-to 'blogs.edit' blog.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+                {{#link-to 'blogs.show' blog.id class='btn btn-success btn-xs'}}Show{{/link-to}}
                   <button class="btn btn-danger btn-xs" {{action 'deleteBlog' blog}}>Delete</button>
               </div>
           </div>
