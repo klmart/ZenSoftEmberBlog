@@ -18,7 +18,9 @@ Router.map(function () {
       });
     });
   });
-  this.route('comments', function() {});
+  this.route('comments', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
