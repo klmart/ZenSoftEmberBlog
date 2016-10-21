@@ -2,16 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  model() {
-    return this.store.findAll('blog');
+  model(){
+    return this.modelFor('blogs.show').get('posts');
   },
 
   actions: {
-    deleteBlog(blog){
+    deletePost(post){
       let confirmation = confirm('Are you sure?')
       if (confirmation) {
-        blog.destroyRecord();
+        post.destroyRecord();
       }
     }
   }
+
 });
