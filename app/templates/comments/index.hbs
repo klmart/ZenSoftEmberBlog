@@ -1,1 +1,7 @@
-{{outlet}}
+{{#each model as |comment|}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{comment.body}}
+        </div>
+    </div>
+{{/each}}
