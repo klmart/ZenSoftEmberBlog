@@ -8,6 +8,17 @@ export default Ember.Route.extend({
     });
   },
 
+  setupController: function (controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Create a new post');
+    controller.set('buttonLabel', 'Create');
+  },
+
+  renderTemplate() {
+    this.render('posts/form');
+  },
+
   actions: {
 
     savePost(newPost){

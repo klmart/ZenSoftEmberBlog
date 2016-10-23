@@ -6,6 +6,17 @@ export default Ember.Route.extend({
     return this.store.findRecord('post', params.post_id);
   },
 
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Edit post');
+    controller.set('buttonLabel', 'Save changes');
+  },
+
+  renderTemplate() {
+    this.render('posts/form');
+  },
+
   actions: {
 
     savePost(newPost) {

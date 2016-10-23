@@ -1,14 +1,11 @@
-<h1>List posts</h1>
-
-{{#each model as |post|}}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-          {{#link-to 'posts.show' post.id }}{{post.title}}{{/link-to}}
-        </div>
-        <div class="panel-body">
-          {{post.content}}
-          {{#link-to 'posts.edit' post.id class='btn btn-default btn-xs'}}Edit{{/link-to}}
+<h2>List</h2>
+<div class="row">
+  {{#each model as |post|}}
+      <div class="col-md-4">
+        {{#post-item item=post}}
+          {{#link-to 'posts.edit' post.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
             <button class="btn btn-danger btn-xs" {{action 'deletePost' post}}>Delete</button>
-        </div>
-    </div>
-{{/each}}
+        {{/post-item}}
+      </div>
+  {{/each}}
+</div>

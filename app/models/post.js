@@ -5,5 +5,8 @@ export default DS.Model.extend({
   content: DS.attr('string'),
 
   blog: DS.belongsTo('blog', {async: false}),
-  comments: DS.hasMany('comment')
+  comments: DS.hasMany('comment'),
+
+  isValid: Ember.computed.notEmpty('title')
+
 });
