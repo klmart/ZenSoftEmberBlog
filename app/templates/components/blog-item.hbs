@@ -1,1 +1,13 @@
-{{yield}}
+<div class="panel panel-default library-item">
+    <div class="panel-heading">
+
+      {{#link-to 'blogs.show' item.id }} <h3 class="panel-title" >{{item.name}}</h3>{{/link-to}}
+
+    </div>
+    <div class="panel-body">
+        <p>Description: {{item.description}}</p>
+    </div>
+    <div class="panel-footer text-right">
+      {{yield}}
+    </div>
+</div>
