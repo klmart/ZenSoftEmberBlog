@@ -1,4 +1,5 @@
-import FirebaseAdapter from 'emberfire/adapters/firebase';
+import LSAdapter from 'ember-localstorage-adapter';
 
-export default FirebaseAdapter.extend({
+export default LSAdapter.extend({
+  namespace: 'yournamespace'
 });
