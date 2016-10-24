@@ -7,6 +7,18 @@ export default Ember.Route.extend({
     });
   },
 
+  setupController: function (controller, model) {
+    this._super(controller, model);
+
+    controller.set('title', 'Create a new comment');
+    controller.set('buttonLabel', 'Create');
+  },
+
+  renderTemplate() {
+    this.render('comments/form');
+  },
+
+
   actions: {
     saveComment(newComment){
       newComment.save().then(() => {

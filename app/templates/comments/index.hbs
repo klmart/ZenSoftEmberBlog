@@ -1,7 +1,11 @@
-{{#each model as |comment|}}
-    <div class="panel panel-default">
-        <div class="panel-body">
-            {{comment.body}}
-        </div>
-    </div>
-{{/each}}
+<h2>List</h2>
+<div class="row">
+  {{#each model as |comment|}}
+      <div class="col-md-4">
+        {{#comment-item item=comment}}
+          {{#link-to 'comments.edit' comment.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+            <button class="btn btn-danger btn-xs" {{action 'deleteComment' comment}}>Delete</button>
+        {{/comment-item}}
+      </div>
+  {{/each}}
+</div>
