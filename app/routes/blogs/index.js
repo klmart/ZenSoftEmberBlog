@@ -7,8 +7,9 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    deleteBlog(blog){
-      let confirmation = confirm('Are you sure?')
+    deleteBlog(){
+
+      let confirmation = confirm('Are you sure?');
       if (confirmation) {
         blog.destroyRecord();
       }

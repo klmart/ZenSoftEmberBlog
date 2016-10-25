@@ -20,7 +20,6 @@ export default Ember.Route.extend({
   actions: {
 
     saveBlog(newBlog) {
-      console.log(this.get('currentUser.test_user'));
       newBlog.save().then(() => this.transitionTo('blogs'));
     },
 
