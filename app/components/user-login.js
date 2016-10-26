@@ -10,10 +10,9 @@ export default Ember.Component.extend({
       // console.log(this.get('currentUser.test_user'));
       // this.get('currentUser.testUser').set('email', email);
       // this.get('loginService.currentUser').set('email', email);
-      // console.log(this.get('loginService.currentUser'));
 
       this.loginService.findUser(email, password);
-
+      console.log('2222222222222222222222222222');
 
       this.sendAction();
     }

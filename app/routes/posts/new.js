@@ -4,7 +4,8 @@ export default Ember.Route.extend({
 
   model() {
     return this.store.createRecord('post', {
-      blog: this.modelFor('blogs.show')
+      blog: this.modelFor('blogs.show'),
+      user: this.get('loginService.currentUser')
     });
   },
 

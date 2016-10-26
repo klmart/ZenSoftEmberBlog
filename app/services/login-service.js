@@ -11,6 +11,8 @@ export default Ember.Service.extend({
       users.forEach((user) => {
         if ((user.get('email') == email) && (user.get('password') == pass)) {
           this.set('currentUser', user);
+          console.log('Сработало');
+          console.log(this.currentUser.get('email'));
         }
       })
     });
