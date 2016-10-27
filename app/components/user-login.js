@@ -7,14 +7,16 @@ export default Ember.Component.extend({
 
       const  { email, password } = this.getProperties('email', 'password');
 
-      // console.log(this.get('currentUser.test_user'));
-      // this.get('currentUser.testUser').set('email', email);
-      // this.get('loginService.currentUser').set('email', email);
+      console.log('Запускаю findUser, чтобы найти юзера из базы');
+      this.loginService.findUser(email, password).then((user) =>{
+        this.loginService.setCurrentUser(user);
+        console.log('Проверь email');
+        console.log(this.get('loginService.currentUser.email'));
+      });
 
-      this.loginService.findUser(email, password);
-      console.log('2222222222222222222222222222');
-
+      console.log('Должен появться после findUser');
       this.sendAction();
+
     }
 
 }

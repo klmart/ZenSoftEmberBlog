@@ -4,8 +4,8 @@ export default Ember.Route.extend({
 
   actions: {
     login() {
-      this.transitionTo('blogs')
+      console.log('route user-login start');
+      this.transitionTo('blogs');
     }
-
   }
 });

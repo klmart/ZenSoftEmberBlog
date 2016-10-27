@@ -4,19 +4,19 @@ export default Ember.Service.extend({
 
   store: Ember.inject.service('store'),
   currentUser: Ember.Object.create(),
+  isAuthenticated: false,
 
   findUser(email, pass){
 
-    this.get('store').findAll('user').then((users) => {
-      users.forEach((user) => {
-        if ((user.get('email') == email) && (user.get('password') == pass)) {
-          this.set('currentUser', user);
-          console.log('Сработало');
-          console.log(this.currentUser.get('email'));
-        }
-      })
+    return this.get('store').query('user', {
+       email: email, password: pass }).then(function(users){
+      return users.get('lastObject');
     });
+  },
 
+  setCurrentUser(user){
+    this.set('currentUser', user);
+    this.set('isAuthenticated', true);
   }
 
 });
