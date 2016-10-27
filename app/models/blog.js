@@ -1,11 +1,14 @@
 import DS from 'ember-data';
 
+import Ember from 'ember';
+
 export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
 
   posts: DS.hasMany('post'),
-  users: DS.hasMany('user'),
+
+  user: DS.belongsTo('user'),
 
   isValid: Ember.computed.notEmpty('name')
 

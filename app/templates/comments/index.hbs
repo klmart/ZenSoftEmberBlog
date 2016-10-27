@@ -1,6 +1,6 @@
 <h2>List</h2>
 <div class="row">
-  {{#each model as |comment|}}
+  {{#each model.comments as |comment|}}
       <div class="col-md-4">
         {{#comment-item item=comment}}
           {{#link-to 'comments.edit' comment.id class='btn btn-success btn-xs'}}Edit{{/link-to}}

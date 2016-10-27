@@ -26,13 +26,15 @@ export default Ember.Route.extend({
       newPost.save().then(() => {
         const blog = newPost.get('blog');
         blog.get('posts').pushObject(newPost);
-        blog.save();
-        this.transitionTo('posts');
+
+        blog.save().then(() => {
+          this.transitionTo('posts');
+        });
       });
     },
 
     willTransition() {
-      this.controller.get('model').rollbackAttributes();
+      this.controller.get('model').unloadRecord();
     }
   }
 });

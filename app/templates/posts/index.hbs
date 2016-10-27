@@ -1,6 +1,6 @@
 <h2>List</h2>
 <div class="row">
-  {{#each model as |post|}}
+  {{#each model.posts as |post|}}
       <div class="col-md-4">
         {{#post-item item=post}}
           {{#link-to 'posts.edit' post.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
