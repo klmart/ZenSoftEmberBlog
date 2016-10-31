@@ -6,6 +6,7 @@
         </div>
     </div>
 </div>
-
-{{#link-to 'posts.new' model class='btn btn-success btn-xs'}}Add new post {{/link-to}}
+  {{#if model.checkUser}}
+    {{#link-to 'posts.new' model class='btn btn-success btn-xs'}}Add new post {{/link-to}}
+  {{/if}}
 {{outlet}}

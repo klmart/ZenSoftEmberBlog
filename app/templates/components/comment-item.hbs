@@ -7,6 +7,8 @@
         <p>Comment: {{item.body}}</p>
     </div>
     <div class="panel-footer text-right">
-      {{yield}}
+      {{#if item.checkUser}}
+        {{yield}}
+      {{/if}}
     </div>
 </div>

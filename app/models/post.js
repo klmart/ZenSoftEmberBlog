@@ -8,4 +8,12 @@ export default DS.Model.extend({
   blog: DS.belongsTo('blog', { async: false }),
   comments: DS.hasMany('comment'),
 
+  checkUser: Ember.computed(function () {
+    if(this.get('loginService.currentUser.id') == this.get('user.id')){
+      return true
+    } else {
+      return false
+    }
+  })
+
 });

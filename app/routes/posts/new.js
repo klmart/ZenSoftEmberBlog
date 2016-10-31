@@ -1,6 +1,17 @@
-import Ember from 'ember';
+import Authenticated from '../authenticated';
 
-export default Ember.Route.extend({
+export default Authenticated.extend({
+
+  beforeModel(transition){
+    this._super(...arguments);
+    const blog = this.modelFor('blogs.show');
+
+    if (blog.get('user.id')== this.get('loginService.currentUser.id')) {
+      return true
+    } else {
+      transition.abort()
+    }
+  },
 
   model() {
     return this.store.createRecord('post', {
@@ -34,7 +45,7 @@ export default Ember.Route.extend({
     },
 
     willTransition() {
-      this.controller.get('model').unloadRecord();
+      this.controller.get('model').rollbackAttributes();
     }
   }
 });

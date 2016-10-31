@@ -1,6 +1,20 @@
-import Ember from 'ember';
+// import Ember from 'ember';
+import Authenticated from '../authenticated';
 
-export default Ember.Route.extend({
+
+export default Authenticated.extend({
+
+  beforeModel(transition){
+    this._super(...arguments);
+    console.log(transition.params);
+    const postID = transition.params['posts.edit'].post_id;
+
+    this.store.findRecord('post', postID).then((post)=> {
+      if (!(this.get('loginService.currentUser.id') == post.get('user.id'))) {
+        this.transitionTo('posts');
+      }
+    });
+  },
 
   model(params) {
     return this.store.findRecord('post', params.post_id);

@@ -3,6 +3,20 @@ import Authenticated from '../authenticated';
 
 export default Authenticated.extend({
 
+  beforeModel(transition){
+    this._super(...arguments);
+
+    const blogId = transition.params['blogs.edit'].blog_id;
+
+    this.store.findRecord('blog', blogId).then((blog)=> {
+      if (this.get('loginService.currentUser.id') == blog.get('user.id')) {
+        return true
+      } else {
+          transition.abort();
+      }
+    });
+  },
+
   model(params) {
     return this.store.findRecord('blog', params.blog_id);
   },

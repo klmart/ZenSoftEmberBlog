@@ -1,6 +1,19 @@
-import Ember from 'ember';
+import Authenticated from '../authenticated';
 
-export default Ember.Route.extend({
+export default Authenticated.extend({
+
+  beforeModel(transition){
+    this._super(...arguments);
+    const commentId = transition.params['comments.edit'].comment_id;
+
+    this.store.findRecord('comment', commentId).then((comment)=> {
+      if (this.get('loginService.currentUser.id') == comment.get('user.id')) {
+        return true
+      } else {
+        transition.abort();
+      }
+    });
+  },
 
   model(params) {
     return this.store.findRecord('comment', params.comment_id);

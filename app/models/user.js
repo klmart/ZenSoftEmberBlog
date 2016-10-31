@@ -4,8 +4,8 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   password: DS.attr('string'),
 
-  // blogs: DS.hasMany('blog'),
-  // posts: DS.hasMany('post'),
-  // comments: DS.hasMany('comment')
+  blogs: DS.hasMany('blog'),
+  posts: DS.hasMany('post'),
+  comments: DS.hasMany('comment')
 
 });
