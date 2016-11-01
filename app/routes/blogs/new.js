@@ -25,7 +25,7 @@ export default Authenticated.extend({
     saveBlog(newBlog) {
 
       newBlog.save().then(() => {
-        this.transitionTo('blogs')
+        this.transitionTo('blogs');
       });
     },
 

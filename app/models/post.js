@@ -9,11 +9,7 @@ export default DS.Model.extend({
   comments: DS.hasMany('comment'),
 
   checkUser: Ember.computed(function () {
-    if(this.get('loginService.currentUser.id') == this.get('user.id')){
-      return true
-    } else {
-      return false
-    }
+    return this.get('user.id') === this.get('loginService.currentUser.id')? true : false;
   })
 
 });

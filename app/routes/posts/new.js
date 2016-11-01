@@ -7,7 +7,7 @@ export default Authenticated.extend({
     const blog = this.modelFor('blogs.show');
 
     if (!blog.get('checkUser')) {
-      this.transitionTo('posts')
+      this.transitionTo('posts');
     } else {
       return this.store.createRecord('post', {
         blog: this.modelFor('blogs.show'),

@@ -6,7 +6,7 @@ export default Authenticated.extend({
     const commentPromise = this.store.findRecord('comment', params.comment_id);
     commentPromise.then((comment) => {
       if (!comment.get('checkUser')) {
-        this.transitionTo('comments')
+        this.transitionTo('comments');
       }
     });
     return commentPromise;
