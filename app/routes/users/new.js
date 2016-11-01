@@ -8,6 +8,10 @@ export default Ember.Route.extend({
   actions: {
     saveUser(newUser){
       newUser.save().then(() => this.transitionTo('blogs'));
+    },
+
+    willTransition() {
+      this.controller.get('model').unloadRecord();
     }
   }
 

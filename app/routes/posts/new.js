@@ -41,7 +41,7 @@ export default Authenticated.extend({
     },
 
     willTransition() {
-      this.controller.get('model').rollbackAttributes();
+      this.controller.get('model').unloadRecord();
     }
   }
 });
