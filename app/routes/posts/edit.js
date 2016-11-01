@@ -1,23 +1,17 @@
-// import Ember from 'ember';
 import Authenticated from '../authenticated';
 
 
 export default Authenticated.extend({
 
-  beforeModel(transition){
-    this._super(...arguments);
-    console.log(transition.params);
-    const postID = transition.params['posts.edit'].post_id;
+  model(params) {
+  const postPromise = this.store.findRecord('post', params.post_id);
 
-    this.store.findRecord('post', postID).then((post)=> {
-      if (!(this.get('loginService.currentUser.id') == post.get('user.id'))) {
+    postPromise.then((post) => {
+      if(!post.get('checkUser')){
         this.transitionTo('posts');
       }
     });
-  },
-
-  model(params) {
-    return this.store.findRecord('post', params.post_id);
+    return postPromise;
   },
 
   setupController(controller, model) {

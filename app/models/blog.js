@@ -13,7 +13,7 @@ export default DS.Model.extend({
   isValid: Ember.computed.notEmpty('name'),
 
   checkUser: Ember.computed(function () {
-    if(this.get('loginService.currentUser.id') == this.get('user.id')){
+    if (this.get('loginService.currentUser.id') == this.get('user.id')) {
       return true
     } else {
       return false

@@ -2,22 +2,18 @@ import Authenticated from '../authenticated';
 
 export default Authenticated.extend({
 
-  beforeModel(transition){
-    this._super(...arguments);
+  model() {
+
     const blog = this.modelFor('blogs.show');
 
-    if (blog.get('user.id')== this.get('loginService.currentUser.id')) {
-      return true
+    if (!blog.get('checkUser')) {
+      this.transitionTo('posts')
     } else {
-      transition.abort()
+      return this.store.createRecord('post', {
+        blog: this.modelFor('blogs.show'),
+        user: this.get('loginService.currentUser')
+      });
     }
-  },
-
-  model() {
-    return this.store.createRecord('post', {
-      blog: this.modelFor('blogs.show'),
-      user: this.get('loginService.currentUser')
-    });
   },
 
   setupController: function (controller, model) {
