@@ -9,6 +9,7 @@ export default Authenticated.extend({
     });
   },
 
+  //TODO: to components
   setupController: function (controller, model) {
     this._super(controller, model);
 
@@ -16,6 +17,7 @@ export default Authenticated.extend({
     controller.set('buttonLabel', 'Create');
   },
 
+  //TODO: remove this method
   renderTemplate() {
     this.render('blogs/form');
   },

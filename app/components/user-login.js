@@ -10,6 +10,7 @@ export default Ember.Component.extend({
         this.loginService.setCurrentUser(user);
       });
 
+      //TODO: use action in params
       this.sendAction();
 
     }

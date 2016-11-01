@@ -8,6 +8,7 @@ export default Ember.Route.extend({
     });
   },
 
+  //TODO: same
   setupController: function (controller, model) {
     this._super(controller, model);
 
@@ -15,6 +16,7 @@ export default Ember.Route.extend({
     controller.set('buttonLabel', 'Create');
   },
 
+  //TODO: same
   renderTemplate() {
     this.render('comments/form');
   },

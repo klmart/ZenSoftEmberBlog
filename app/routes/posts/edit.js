@@ -14,6 +14,7 @@ export default Authenticated.extend({
     return postPromise;
   },
 
+  //TODO: same
   setupController(controller, model) {
     this._super(controller, model);
 
@@ -21,6 +22,7 @@ export default Authenticated.extend({
     controller.set('buttonLabel', 'Save changes');
   },
 
+  //TODO: same
   renderTemplate() {
     this.render('posts/form');
   },

@@ -13,6 +13,8 @@ export default Authenticated.extend({
     return blogPromise;
   },
 
+
+  //TODO: to components
   setupController(controller, model) {
     this._super(controller, model);
 
@@ -20,6 +22,8 @@ export default Authenticated.extend({
     controller.set('buttonLabel', 'Save changes');
   },
 
+
+  //TODO: remove this method
   renderTemplate() {
     this.render('blogs/form');
   },

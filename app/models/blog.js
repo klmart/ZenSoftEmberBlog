@@ -6,7 +6,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
 
-  posts: DS.hasMany('post'),
+  posts: DS.hasMany('post', { async: false }),
 
   user: DS.belongsTo('user'),
 

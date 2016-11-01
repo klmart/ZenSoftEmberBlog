@@ -16,6 +16,7 @@ export default Authenticated.extend({
     }
   },
 
+  //TODO: same
   setupController: function (controller, model) {
     this._super(controller, model);
 
@@ -23,6 +24,7 @@ export default Authenticated.extend({
     controller.set('buttonLabel', 'Create');
   },
 
+  //TODO: same
   renderTemplate() {
     this.render('posts/form');
   },
@@ -41,7 +43,7 @@ export default Authenticated.extend({
     },
 
     willTransition() {
-      this.controller.get('model').unloadRecord();
+      // this.controller.get('model').unloadRecord();
     }
   }
 });
