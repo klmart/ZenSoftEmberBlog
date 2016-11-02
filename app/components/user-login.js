@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   actions: {
-    login(params) {
+    login(userParams) {
 
       const {email, password} = this.getProperties('email', 'password');
       this.loginService.findUser(email, password).then((user) => {
@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 
       //TODO: use action in params
       //Done
-      this.sendAction('action', params);
+      this.sendAction('action', userParams);
     }
   }
 });
