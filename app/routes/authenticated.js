@@ -7,5 +7,3 @@ export default Ember.Route.extend({
     }
   },
 });
-
-//TODO: delete unused things

@@ -5,7 +5,6 @@ export default Ember.Service.extend({
   store: Ember.inject.service('store'),
   currentUser: Ember.Object.create(),
   isAuthenticated: false,
-  testTrue: true,
 
   findUser(email, pass){
 
