@@ -29,6 +29,11 @@ Router.map(function () {
     this.route('new');
   });
   this.route('login');
+
+  this.route('blog-types', function() {
+    this.route('new');
+    this.route('edit',{path: '/:type_id/edit'});
+  });
 });
 
 export default Router;
