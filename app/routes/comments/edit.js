@@ -13,17 +13,7 @@ export default Authenticated.extend({
   },
 
   //TODO: same
-  setupController(controller, model) {
-    this._super(controller, model);
-
-    controller.set('title', 'Edit post');
-    controller.set('buttonLabel', 'Save changes');
-  },
-
-  //TODO: same
-  renderTemplate() {
-    this.render('comments/form');
-  },
+  //Moved to component
 
   actions: {
 

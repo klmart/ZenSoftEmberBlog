@@ -9,24 +9,13 @@ export default Ember.Route.extend({
   },
 
   //TODO: same
-  setupController: function (controller, model) {
-    this._super(controller, model);
-
-    controller.set('title', 'Create a new comment');
-    controller.set('buttonLabel', 'Create');
-  },
-
-  //TODO: same
-  renderTemplate() {
-    this.render('comments/form');
-  },
-
+  //Moved to component
 
   actions: {
     saveComment(newComment){
-      newComment.save().then(() => {
-        const post = newComment.get('post');
-        post.get('comments').pushObject(newComment);
+      newComment.save().then((savedComment) => {
+        const post = savedComment.get('post');
+        post.get('comments').pushObject(savedComment);
 
         post.save().then(() => {
           this.transitionTo('comments');

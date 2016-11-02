@@ -15,19 +15,7 @@ export default Authenticated.extend({
 
 
   //TODO: to components
-  setupController(controller, model) {
-    this._super(controller, model);
-
-    controller.set('title', 'Edit blog');
-    controller.set('buttonLabel', 'Save changes');
-  },
-
-
-  //TODO: remove this method
-  renderTemplate() {
-    this.render('blogs/form');
-  },
-
+  //Moved to component
 
   actions: {
 

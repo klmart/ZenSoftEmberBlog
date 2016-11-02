@@ -1,6 +1,5 @@
 import Authenticated from '../authenticated';
 
-
 export default Authenticated.extend({
 
   model() {
@@ -9,18 +8,8 @@ export default Authenticated.extend({
     });
   },
 
-  //TODO: to components
-  setupController: function (controller, model) {
-    this._super(controller, model);
-
-    controller.set('title', 'Create a new blog');
-    controller.set('buttonLabel', 'Create');
-  },
-
-  //TODO: remove this method
-  renderTemplate() {
-    this.render('blogs/form');
-  },
+  // TODO: to components
+  //Moved to component
 
   actions: {
 

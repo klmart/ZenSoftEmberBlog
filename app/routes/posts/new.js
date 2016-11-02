@@ -17,24 +17,14 @@ export default Authenticated.extend({
   },
 
   //TODO: same
-  setupController: function (controller, model) {
-    this._super(controller, model);
-
-    controller.set('title', 'Create a new post');
-    controller.set('buttonLabel', 'Create');
-  },
-
-  //TODO: same
-  renderTemplate() {
-    this.render('posts/form');
-  },
+  //Moved to component
 
   actions: {
 
     savePost(newPost){
-      newPost.save().then(() => {
-        const blog = newPost.get('blog');
-        blog.get('posts').pushObject(newPost);
+      newPost.save().then((savedPost) => {
+        const blog = savedPost.get('blog');
+        blog.get('posts').pushObject(savedPost);
 
         blog.save().then(() => {
           this.transitionTo('posts');
