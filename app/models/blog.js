@@ -6,6 +6,8 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
 
+  blogType: DS.belongsTo('blog-type'),
+
   posts: DS.hasMany('post', { async: false }),
 
   user: DS.belongsTo('user'),
