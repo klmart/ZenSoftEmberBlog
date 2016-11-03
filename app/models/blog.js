@@ -12,8 +12,7 @@ export default DS.Model.extend({
 
   user: DS.belongsTo('user'),
 
-  isValid: Ember.computed.notEmpty('name'),
-
+  // isValid: Ember.computed.notEmpty('name'),
 
   //checkUser: Ember.computed.equal(this.get('loginService.currentUser.id'), this.get('user.id')),
 
