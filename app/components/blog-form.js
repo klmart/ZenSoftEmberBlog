@@ -16,7 +16,7 @@ export default Ember.Component.extend({
     const blogFromRoute = this.get('item') || this.get('store').createRecord('blog', {
         user: this.get('loginService.currentUser')
       });
-    this.set('blog', blogFromRoute)
+    this.set('blog', blogFromRoute);
   },
 
   actions: {
@@ -25,7 +25,6 @@ export default Ember.Component.extend({
     },
 
     buttonClicked(blogParams) {
-      const user = this.get('loginService.currentUser');
       this.sendAction('action', blogParams);
     }
 
