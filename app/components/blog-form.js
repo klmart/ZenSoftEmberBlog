@@ -20,6 +20,9 @@ export default Ember.Component.extend({
   },
 
   actions: {
+    chooseBlogType(blogType){
+      this.get('blog').set('blogType', blogType);
+    },
 
     buttonClicked(blogParams) {
       const user = this.get('loginService.currentUser');
