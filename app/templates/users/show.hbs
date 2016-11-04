@@ -1,20 +1,26 @@
 <div class="jumbo show-listing">
-    <h2><strong>First Name</strong> {{model.firstName}}</h2>
+
     <div class="right detail-section">
         <div class="detail owner">
-            <strong>Last Name</strong> {{model.lastName}}
+            <strong>First Name:</strong> {{model.firstName}}
         </div>
     </div>
 
     <div class="right detail-section">
         <div class="detail owner">
-            <strong>email</strong> {{model.email}}
+            <strong>Last Name:</strong> {{model.lastName}}
         </div>
     </div>
 
     <div class="right detail-section">
         <div class="detail owner">
-            <strong>Registration Date</strong> {{model.registrationDate}}
+            <strong>email:</strong> {{model.email}}
+        </div>
+    </div>
+
+    <div class="right detail-section">
+        <div class="detail owner">
+            <strong>Registration Date:</strong> {{model.registrationDate}}
         </div>
     </div>
 
@@ -24,5 +30,5 @@
         </div>
     </div>
 </div>
-  {{!#link-to 'posts.new' model class='btn btn-success btn-xs'}}Edit Profile{{!/link-to}}
+  {{#link-to 'users.edit' model class='btn btn-success btn-xs'}}Edit Profile{{/link-to}}
 {{outlet}}
