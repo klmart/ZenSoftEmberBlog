@@ -7,18 +7,21 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr('string'),
 
-  createdDate: DS.attr('string', {
+  createdDate: DS.attr('date', {
     defaultValue() {
-      // return new Date()
-      return moment().format('ll');
+      return new Date()
     }
+  }),
+
+  createdMoment: Ember.computed('createdDate', function () {
+    return moment(this.get('createdDate')).format('YYYY-MM-DD')
   }),
 
   blogType: DS.belongsTo('blog-type'),
 
   posts: DS.hasMany('post'),
 
-  user: DS.belongsTo('user'),
+  user: DS.belongsTo('user', { async: false }),
 
   postsCount: Ember.computed(function () {
     return this.get('posts.length');

@@ -20,6 +20,16 @@ export default Ember.Service.extend({
   setCurrentUser(user){
     this.set('currentUser', user);
     this.set('isAuthenticated', true);
+  },
+
+  setLastLoginDate(user){
+    console.log('-----setLastLoginDate------------');
+    const dateNow = new Date();
+    // console.log(dateNow);
+    user.set('lastLoginDate', dateNow);
+    user.save();
+    console.log(user.get('lastLoginDate'));
+    console.log(user.get('lastLoginMoment'));
   }
 
 });

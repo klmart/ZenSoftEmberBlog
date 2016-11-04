@@ -1,8 +1,16 @@
-import Ember from 'ember';
+// import Ember from 'ember';
+import Authenticated from '../authenticated';
 
-export default Ember.Route.extend({
+export default Authenticated.extend({
   model(params){
-    return this.store.findRecord('user', params.user_id)
+    const userPromise = this.store.findRecord('user', params.user_id);
+    //
+    // userPromise.then((user) => {
+    //   if (!user.get('checkUser')) {
+    //     this.transitionTo('users');
+    //   }
+    // });
+    return userPromise;
   },
 
   actions: {

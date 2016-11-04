@@ -6,9 +6,15 @@ export default Authenticated.extend({
   //Moved to component
 
   actions: {
+
     saveBlog(newBlog ) {
-      newBlog.save().then(() => {
-        this.transitionTo('blogs');
+      newBlog.save().then((savedBlog) => {
+        const user = savedBlog.get('user');
+        user.get('blogs').pushObject(savedBlog);
+
+        user.save().then(() => {
+          this.transitionTo('blogs');
+        });
       });
     },
 
