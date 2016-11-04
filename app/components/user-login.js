@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Component.extend({
 
@@ -7,6 +8,7 @@ export default Ember.Component.extend({
 
       const {email, password} = this.getProperties('email', 'password');
       this.loginService.findUser(email, password).then((user) => {
+        user.set('lastLoginDate', moment().format('lll'));
         this.loginService.setCurrentUser(user);
       });
 
