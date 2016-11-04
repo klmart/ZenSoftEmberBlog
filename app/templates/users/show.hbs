@@ -1,0 +1,28 @@
+<div class="jumbo show-listing">
+    <h2><strong>First Name</strong> {{model.firstName}}</h2>
+    <div class="right detail-section">
+        <div class="detail owner">
+            <strong>Last Name</strong> {{model.lastName}}
+        </div>
+    </div>
+
+    <div class="right detail-section">
+        <div class="detail owner">
+            <strong>email</strong> {{model.email}}
+        </div>
+    </div>
+
+    <div class="right detail-section">
+        <div class="detail owner">
+            <strong>Registration Date</strong> {{model.registrationDate}}
+        </div>
+    </div>
+
+    <div class="right detail-section">
+        <div class="detail owner">
+            <strong>Last login</strong> {{model.lastLoginDate}}
+        </div>
+    </div>
+</div>
+  {{!#link-to 'posts.new' model class='btn btn-success btn-xs'}}Edit Profile{{!/link-to}}
+{{outlet}}

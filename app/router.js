@@ -25,14 +25,15 @@ Router.map(function () {
     });
   });
 
-  this.route('users', function() {
+  this.route('users', function () {
     this.route('new');
+    this.route('show', {path: '/:user_id'});
   });
   this.route('login');
 
-  this.route('blog-types', function() {
+  this.route('blog-types', function () {
     this.route('new');
-    this.route('edit',{path: '/:type_id/edit'});
+    this.route('edit', {path: '/:type_id/edit'});
   });
 });
 

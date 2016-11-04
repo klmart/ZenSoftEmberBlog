@@ -19,7 +19,8 @@
 
             <ul class="nav navbar-nav navbar-right">
               {{#if loginService.isAuthenticated}}
-                  <p class="navbar-text">{{loginService.currentUser.email}}</p>
+                {{#link-to 'users.show' loginService.currentUser tagName="li"}}<a href="">{{loginService.currentUser.email}}</a>{{/link-to}}
+
                   <li><a {{action 'logout'}} href="#">Logout</a></li>
               {{else}}
                 {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
