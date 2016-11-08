@@ -1,0 +1,20 @@
+<h1>Main table</h1>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      {{#each fields as |field|}}
+          <th>{{field}}</th>
+      {{/each}}
+    </tr>
+    </thead>
+
+    <tbody>
+    {{#each modelArray as |model|}}
+        <tr>
+          {{#each fields as |field|}}
+              <th>{{get model field}}</th>
+          {{/each}}
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

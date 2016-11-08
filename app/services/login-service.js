@@ -10,7 +10,6 @@ export default Ember.Service.extend({
   isAuthenticated: false,
 
   findUser(email, pass){
-
     return this.get('store').query('user', {
        email: email, password: pass }).then(function(users){
       return users.get('lastObject');
@@ -23,13 +22,8 @@ export default Ember.Service.extend({
   },
 
   setLastLoginDate(user){
-    console.log('-----setLastLoginDate------------');
-    const dateNow = new Date();
-    // console.log(dateNow);
-    user.set('lastLoginDate', dateNow);
+    user.set('lastLoginDate', new Date);
     user.save();
-    console.log(user.get('lastLoginDate'));
-    console.log(user.get('lastLoginMoment'));
   }
 
 });

@@ -19,7 +19,7 @@ export default DS.Model.extend({
     }
   }),
   registrationMoment: Ember.computed('registrationDate', function () {
-    return moment(this.get('registrationDate')).format('YYYY-MM-DD HH:mm')
+    return moment(this.get('registrationDate')).format('YYYY-MM-DD')
   }),
 
   blogsCount: Ember.computed(function () {
@@ -31,11 +31,8 @@ export default DS.Model.extend({
   posts: DS.hasMany('post'),
   comments: DS.hasMany('comment'),
 
-  checkUser: Ember.computed(function () {
-    const answer = this.get('user.id') === this.get('loginService.currentUser.id');
-    console.log(this.get('id'));
-    console.log(this.get('loginService.currentUser.id'));
-    console.log(answer);
+  checkUser: Ember.computed('loginService.currentUser.id',function () {
+    return this.get('id') === this.get('loginService.currentUser.id');
   }),
 
 });

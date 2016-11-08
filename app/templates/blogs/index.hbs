@@ -1,6 +1,6 @@
 <h2>List</h2>
 <div class="row">
-  {{#each model as |blog|}}
+  {{#each filteredBlogs as |blog|}}
       <div class="col-md-4">
         {{#blog-item item=blog}}
           {{#link-to 'blogs.edit' blog.id class='btn btn-success btn-xs'}}Edit{{/link-to}}

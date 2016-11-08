@@ -20,15 +20,15 @@
 
     <div class="right detail-section">
         <div class="detail owner">
-            <strong>Registration Date:</strong> {{model.registrationDate}}
+            <strong>Registration Date:</strong> {{model.registrationMoment}}
         </div>
     </div>
 
     <div class="right detail-section">
         <div class="detail owner">
-            <strong>Last login</strong> {{model.lastLoginDate}}
+            <strong>Last login</strong> {{model.lastLoginMoment}}
         </div>
     </div>
 </div>
   {{#link-to 'users.edit' model class='btn btn-success btn-xs'}}Edit Profile{{/link-to}}
-{{outlet}}
+{{blog-index item=model}}

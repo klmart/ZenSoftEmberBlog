@@ -7,13 +7,14 @@ export default Authenticated.extend({
 
   actions: {
 
-    saveBlog(newBlog ) {
+    saveBlog(newBlog) {
       newBlog.save().then((savedBlog) => {
-        const user = savedBlog.get('user');
-        user.get('blogs').pushObject(savedBlog);
-
-        user.save().then(() => {
-          this.transitionTo('blogs');
+        const userPromise = savedBlog.get('user');
+        userPromise.then((user) => {
+          user.get('blogs').pushObject(savedBlog);
+          user.save().then(() => {
+            this.transitionTo('blogs');
+          });
         });
       });
     },

@@ -21,11 +21,10 @@ export default DS.Model.extend({
 
   posts: DS.hasMany('post'),
 
-  user: DS.belongsTo('user', { async: false }),
+  user: DS.belongsTo('user'),
 
-  postsCount: Ember.computed(function () {
-    return this.get('posts.length');
-  }),
+  //TODO: read alias
+  postsCount: Ember.computed.alias('posts.length'),
 
   isValid: Ember.computed.notEmpty('name'),
 
@@ -33,7 +32,6 @@ export default DS.Model.extend({
   //TODO: refactor
   checkUser: Ember.computed(function () {
     return this.get('user.id') === this.get('loginService.currentUser.id');
-
   })
 
 });

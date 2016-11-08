@@ -20,9 +20,10 @@
             <th>{{user.email}}</th>
             <th>{{user.registrationMoment}}</th>
             <th>{{user.lastLoginMoment}}</th>
-            <th>{{user.blogsCount}}</th>
+            <th>{{#link-to 'blogs.index' (query-params sortParam=user.id)}} {{user.blogsCount}}{{/link-to}}</th>
             <th>{{#link-to 'users.edit' user.id class='btn btn-success btn-xs'}}Edit{{/link-to}}</th>
         </tr>
     {{/each}}
     </tbody>
 </table>
+{{main-table item=model}}

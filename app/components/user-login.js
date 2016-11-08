@@ -7,7 +7,7 @@ export default Ember.Component.extend({
 
       const {email, password} = this.getProperties('email', 'password');
       this.loginService.findUser(email, password).then((user) => {
-        this.loginService.setLastLoginDate(user)
+        this.loginService.setLastLoginDate(user);
         this.loginService.setCurrentUser(user);
       });
 

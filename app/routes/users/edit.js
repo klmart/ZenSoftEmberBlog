@@ -4,12 +4,11 @@ import Authenticated from '../authenticated';
 export default Authenticated.extend({
   model(params){
     const userPromise = this.store.findRecord('user', params.user_id);
-    //
-    // userPromise.then((user) => {
-    //   if (!user.get('checkUser')) {
-    //     this.transitionTo('users');
-    //   }
-    // });
+    userPromise.then((user) => {
+      if (!user.get('checkUser')) {
+        this.transitionTo('users');
+      }
+    });
     return userPromise;
   },
 
@@ -27,7 +26,7 @@ export default Authenticated.extend({
         let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
 
         if (confirmation) {
-          model.rollbackAttributes();
+          model.unloadRecord();
         } else {
           transition.abort();
         }
