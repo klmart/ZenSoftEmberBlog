@@ -4,10 +4,9 @@ export default Ember.Service.extend({
 
   store: Ember.inject.service('store'),
   currentUser: Ember.Object.create(),
-  // isAuthenticated: Ember.computed('currentUser.id', function () {
-  //   return !!this.get('currentUser.id');
-  // }),
-  isAuthenticated: false,
+  isAuthenticated: Ember.computed('currentUser.id', function () {
+    return !!this.get('currentUser.id');
+  }),
 
   findUser(email, pass){
     return this.get('store').query('user', {
@@ -18,11 +17,10 @@ export default Ember.Service.extend({
 
   setCurrentUser(user){
     this.set('currentUser', user);
-    this.set('isAuthenticated', true);
   },
 
   setLastLoginDate(user){
-    user.set('lastLoginDate', new Date);
+    user.set('lastLoginDate', new Date());
     user.save();
   }
 

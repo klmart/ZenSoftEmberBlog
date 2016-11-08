@@ -9,12 +9,12 @@ export default DS.Model.extend({
 
   createdDate: DS.attr('date', {
     defaultValue() {
-      return new Date()
+      return new Date();
     }
   }),
 
   createdMoment: Ember.computed('createdDate', function () {
-    return moment(this.get('createdDate')).format('YYYY-MM-DD')
+    return moment(this.get('createdDate')).format('YYYY-MM-DD');
   }),
 
   blogType: DS.belongsTo('blog-type'),
@@ -23,13 +23,12 @@ export default DS.Model.extend({
 
   user: DS.belongsTo('user'),
 
-  //TODO: read alias
   postsCount: Ember.computed.alias('posts.length'),
 
   isValid: Ember.computed.notEmpty('name'),
 
-  //checkUser: Ember.computed.equal(this.get('loginService.currentUser.id'), this.get('user.id')),
   //TODO: refactor
+  //Done
   checkUser: Ember.computed(function () {
     return this.get('user.id') === this.get('loginService.currentUser.id');
   })

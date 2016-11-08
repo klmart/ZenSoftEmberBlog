@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 import moment from 'moment';
-
+import Ember from 'ember';
 
 export default DS.Model.extend({
   email: DS.attr('string'),
@@ -10,7 +10,7 @@ export default DS.Model.extend({
 
   lastLoginDate: DS.attr('date'),
   lastLoginMoment: Ember.computed('lastLoginDate', function () {
-    return moment(this.get('lastLoginDate')).format('YYYY-MM-DD, HH:mm')
+    return moment(this.get('lastLoginDate')).format('YYYY-MM-DD, HH:mm');
   }),
 
   registrationDate: DS.attr('date', {
@@ -19,7 +19,7 @@ export default DS.Model.extend({
     }
   }),
   registrationMoment: Ember.computed('registrationDate', function () {
-    return moment(this.get('registrationDate')).format('YYYY-MM-DD')
+    return moment(this.get('registrationDate')).format('YYYY-MM-DD');
   }),
 
   blogsCount: Ember.computed(function () {

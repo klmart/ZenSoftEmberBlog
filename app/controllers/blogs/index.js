@@ -1,8 +1,7 @@
+import Ember from 'ember';
 export default Ember.Controller.extend({
   queryParams: ['sortParam'],
   sortParam: null,
-  refreshModel: true,
-
 
   filteredBlogs: Ember.computed('sortParam', 'model', function () {
     var sortParam = this.get('sortParam');
