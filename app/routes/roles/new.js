@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(){
-    return this.store.createRecord('role')
-  },
+  // model(){
+  //   return this.store.createRecord('role')
+  // },
 
   actions: {
     saveRole(newRole){
@@ -11,7 +11,7 @@ export default Ember.Route.extend({
     },
 
     willTransition() {
-      this.controller.get('model').unloadRecord();
+      // this.controller.get('model').unloadRecord();
     }
   }
 });

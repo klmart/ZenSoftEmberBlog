@@ -5,6 +5,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{role.name}}</h3>
+          {{#each role.permissions as |permission|}}
+              <div>{{permission.name}}</div>
+          {{/each}}
             <div class="text-right">
               {{#link-to 'roles.edit' role.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
                 <button class="btn btn-danger btn-xs" {{action 'deleteRole' role}}>Delete</button>

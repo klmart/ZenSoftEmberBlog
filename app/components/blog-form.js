@@ -21,7 +21,8 @@ export default Ember.Component.extend({
 
   actions: {
     chooseBlogType(blogType){
-      this.get('blog').set('blogType', blogType);
+      const selected = this.set('blogType', blogType);
+      this.get('blog').set('blogType', selected);
     },
 
     buttonClicked(blogParams) {
