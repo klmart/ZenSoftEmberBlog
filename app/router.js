@@ -37,6 +37,11 @@ Router.map(function () {
     this.route('new');
     this.route('edit', {path: '/:type_id/edit'});
   });
+
+  this.route('roles', function() {
+    this.route('new');
+    this.route('edit', {path: '/:role_id/edit'});
+  });
 });
 
 export default Router;
