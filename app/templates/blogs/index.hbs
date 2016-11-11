@@ -1,11 +1,26 @@
-<h2>List</h2>
+<h2>Blogs</h2>
 <div class="row">
   {{#each filteredBlogs as |blog|}}
       <div class="col-md-4">
-        {{#blog-item item=blog}}
-          {{#link-to 'blogs.edit' blog.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
-            <button class="btn btn-danger btn-xs" {{action 'deleteBlog' blog}}>Delete</button>
-        {{/blog-item}}
+          <div class="panel panel-default library-item">
+              <div class="panel-heading">
+                {{#link-to 'posts.index' blog.id }} <h3 class="panel-title">{{blog.name}}</h3>{{/link-to}}
+              </div>
+              <div class="panel-body">
+                  <p>Автор блога: {{blog.user.email}}</p>
+                  <p>Description: {{blog.description}}</p>
+                  <p>Blog type: {{blog.blogType.name}}</p>
+                  <p>Created Date: {{blog.createdMoment}}</p>
+                  <p>Колличество постов: {{blog.postsCount}}</p>
+              </div>
+              <div class="panel-footer text-right">
+                {{#if blog.checkUser}}
+                  {{#link-to 'blogs.edit' blog.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+                    <button class="btn btn-danger btn-xs" {{action 'deleteBlog' blog}}>Delete</button>
+                {{/if}}
+              </div>
+          </div>
       </div>
   {{/each}}
 </div>
+
