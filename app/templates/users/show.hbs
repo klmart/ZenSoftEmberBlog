@@ -26,6 +26,14 @@
 
     <div class="right detail-section">
         <div class="detail owner">
+            <strong>Permissions:</strong>{{#each loginService.permissions as |permission|}}
+          {{permission.code}},
+        {{/each}}
+        </div>
+    </div>
+
+    <div class="right detail-section">
+        <div class="detail owner">
             <strong>Registration Date:</strong> {{model.registrationMoment}}
         </div>
     </div>
@@ -36,5 +44,6 @@
         </div>
     </div>
 </div>
-  {{#link-to 'users.edit' model class='btn btn-success btn-xs'}}Edit Profile{{/link-to}}
+
+{{#link-to 'users.edit' model class='btn btn-success btn-xs'}}Edit Profile{{/link-to}}
 {{blog-table item=model}}
