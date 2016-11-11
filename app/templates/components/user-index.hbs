@@ -22,10 +22,10 @@
             <td>{{user.lastLoginMoment}}</td>
             <td>{{#link-to 'blogs.index' (query-params sortParam=user.id)}} {{user.blogsCount}}{{/link-to}}</td>
             <td> {{#power-select
-              selected=role
+              selected=user.role
               placeholder="Role"
               options=roles
-              onchange=(action "chooseRole")
+              onchange=(action "chooseRole" user role)
             as |role|
             }}
               {{role.name}}
