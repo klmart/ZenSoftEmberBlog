@@ -2,10 +2,21 @@
 <div class="row">
   {{#each model.posts as |post|}}
       <div class="col-md-4">
-        {{#post-item item=post}}
-          {{#link-to 'posts.edit' post.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
-            <button class="btn btn-danger btn-xs" {{action 'deletePost' post}}>Delete</button>
-        {{/post-item}}
+          <div class="panel panel-default library-item">
+              <div class="panel-heading">
+                {{#link-to 'comments.index' post.id }} <h3 class="panel-title">{{post.title}}</h3>{{/link-to}}
+              </div>
+              <div class="panel-body">
+                  <p>Автор: {{post.user.email}}</p>
+                  <p>Content: {{post.content}}</p>
+              </div>
+              <div class="panel-footer text-right">
+                {{#if post.checkUser}}
+                  {{#link-to 'posts.edit' post.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+                    <button class="btn btn-danger btn-xs" {{action 'deletePost' post}}>Delete</button>
+                {{/if}}
+              </div>
+          </div>
       </div>
   {{/each}}
 </div>
