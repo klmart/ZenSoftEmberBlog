@@ -31,7 +31,8 @@ export default DS.Model.extend({
   posts: DS.hasMany('post'),
   comments: DS.hasMany('comment'),
   role: DS.belongsTo('role'),
-  checkUser: Ember.computed('loginService.currentUser.id',function () {
+
+  checkUser: Ember.computed('loginService.currentUser.id', function () {
     return this.get('id') === this.get('loginService.currentUser.id');
   }),
 

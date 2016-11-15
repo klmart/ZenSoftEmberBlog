@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   actions: {
     saveRole(saveBlog){
       saveBlog.save().then(() => {
-        this.transitionTo('roles')
+        this.transitionTo('roles');
       });
     },
 

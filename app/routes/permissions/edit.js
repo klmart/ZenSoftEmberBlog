@@ -2,13 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params){
-    return this.store.findRecord('permission', params.permission_id)
+    return this.store.findRecord('permission', params.permission_id);
   },
 
   actions: {
     savePermission(permission){
       permission.save().then(() => {
-        this.transitionTo('permissions')
+        this.transitionTo('permissions');
       });
     },
 

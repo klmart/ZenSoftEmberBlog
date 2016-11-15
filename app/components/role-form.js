@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   role: undefined,
 
   permissions: Ember.computed(function () {
-    return this.get('store').findAll('permission')
+    return this.get('store').findAll('permission');
   }),
 
   init(){

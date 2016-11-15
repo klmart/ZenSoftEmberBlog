@@ -4,7 +4,7 @@ export default Ember.Service.extend({
 
   store: Ember.inject.service('store'),
   currentUser: Ember.Object.create(),
-  permissions: undefined,
+  currentPermissions: undefined,
 
   isAuthenticated: Ember.computed('currentUser.id', function () {
     return !!this.get('currentUser.id');
@@ -17,15 +17,30 @@ export default Ember.Service.extend({
       return users.get('lastObject');
     });
   },
-  
+
+  userInit(user){
+    this.setCurrentUser(user);
+    this.setLastLoginDate(user);
+    return this.setPermissions(user);
+  },
+
   setCurrentUser(user){
-    this.set('currentUser', user);
-    this.set('permissions', user.get('role.permissions'))
+    this.set('currentUser', user)
   },
 
   setLastLoginDate(user){
     user.set('lastLoginDate', new Date());
     user.save();
+  },
+
+  setPermissions(user){
+    const th = this;
+    return new Promise(function (resolve, reject) {
+      return user.get('role.permissions').then((permissions) => {
+        th.set('currentPermissions', permissions);
+        resolve();
+      })
+    })
   }
 
 });
