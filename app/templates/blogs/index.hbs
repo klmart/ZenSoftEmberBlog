@@ -1,9 +1,18 @@
 <h2>Blogs</h2>
+{{#check-permissions permissionCode="canDeleteAllBlogs"}}
+    <button class="btn btn-danger btn-xs" {{action 'multipleDelete' filteredBlogs}}>Delete Blogs</button>
+{{/check-permissions}}
+<br>
+
 <div class="row">
   {{#each filteredBlogs as |blog|}}
       <div class="col-md-4">
           <div class="panel panel-default library-item">
               <div class="panel-heading">
+                {{#check-permissions permissionCode="canDeleteAllBlogs"}}
+                  {{input type="checkbox" name="isEmberized" checked=blog.isChecked}}
+                {{/check-permissions}}
+
                 {{#link-to 'posts.index' blog.id }} <h3 class="panel-title">{{blog.name}}</h3>{{/link-to}}
               </div>
               <div class="panel-body">

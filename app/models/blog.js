@@ -31,6 +31,13 @@ export default DS.Model.extend({
   //Done
   checkUser: Ember.computed(function () {
     return this.get('user.id') === this.get('loginService.currentUser.id');
-  })
+  }),
+
+  isTest: Ember.observer(
+    'isChecked',
+    function () {
+      console.log(this.get('isChecked'));
+    }
+  )
 
 });
