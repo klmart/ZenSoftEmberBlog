@@ -33,11 +33,9 @@ export default DS.Model.extend({
     return this.get('user.id') === this.get('loginService.currentUser.id');
   }),
 
-  isTest: Ember.observer(
+  blogCheckBox: Ember.observer(
     'isChecked',
-    function () {
-      console.log(this.get('isChecked'));
-    }
+    function () {}
   )
 
 });

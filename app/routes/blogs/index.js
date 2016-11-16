@@ -33,7 +33,7 @@ export default Authenticated.extend({
     multipleDelete(filteredBlogs){
       let confirmation = confirm('Are you sure?');
       if (confirmation) {
-        const blogs = filteredBlogs.filter(function (blog) {
+        const blogs = filteredBlogs.filter((blog) => {
           return blog.get('isChecked');
         });
 
