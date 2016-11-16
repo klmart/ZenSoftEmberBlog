@@ -12,3 +12,8 @@ html {
 .blog-item {
   min-height: 150px;
 }
+
+.panel.isChecked {
+  border-color: red;
+  box-shadow: 0 1px 20px 0 #e00013 , 0 0 0 1px #a72727 ;
+}

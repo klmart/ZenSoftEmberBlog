@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   fields: undefined,
   modelArray: undefined,
 
+
   init(){
     this._super(...arguments);
     const modelFromRoute = this.get('item');
@@ -19,17 +20,23 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    chooseField(ignore, fieldsArray){
-      const selected = this.set('field', fieldsArray);
-
+    chooseField(fieldName){
+      const selected = this.set('field', fieldName);
       this.get('fields').forEach((field) => {
-        Ember.set(field, 'status', true);
-        selected.forEach((selectedField) => {
-          if (field.name === selectedField.name) {
-            Ember.set(field, 'status', false)
-          }
-        })
+        if (field.name === fieldName.name) {
+          // field.Ember.set(status, false);
+          // field.status = true;
+          Ember.set(field, 'status', false)
+        }
       });
     },
+
+    testAction(){
+      this.get('fields').forEach((field) => {
+        console.log('---------------');
+        console.log(field.name);
+        console.log(field.status);
+      })
+    }
   }
 });

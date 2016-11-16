@@ -6,7 +6,7 @@ export default Authenticated.extend({
   loginService: Ember.inject.service('login-service'),
 
   permissions: Ember.computed(function () {
-    return this.get('loginService.permissions');
+    return this.get('loginService.currentPermissions');
   }),
 
   canEdit: 'canEditAllBlogs',
@@ -32,18 +32,6 @@ export default Authenticated.extend({
       return blogPromise;
     }
   },
-
-
-  // model(params) {
-  //   const blogPromise = this.store.findRecord('blog', params.blog_id);
-  //   blogPromise.then((blog) => {
-  //     if (!blog.get('checkUser')) {
-  //       this.transitionTo('blogs');
-  //     }
-  //   });
-  //   return blogPromise;
-  // },
-
 
   //TODO: to components
   //Moved to component
@@ -71,5 +59,4 @@ export default Authenticated.extend({
       }
     }
   }
-})
-;
+});

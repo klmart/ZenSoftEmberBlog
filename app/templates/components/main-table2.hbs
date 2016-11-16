@@ -1,15 +1,15 @@
 <h1>Main table</h1>
 <div class="col-sm-8">
     <div class="col-sm-4">
-      {{#power-select-multiple
-        options=fields
+      {{#power-select
         selected=field
-        placeholder="Select Hide Fileds"
-        onchange=(action "chooseField" (mut ignore fields))
+        placeholder="Please, select one destination"
+        options=fields
+        onchange=(action "chooseField")
       as |field|
       }}
         {{field.name}}
-      {{/power-select-multiple}}
+      {{/power-select}}
     </div>
 </div>
 
