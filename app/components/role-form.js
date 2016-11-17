@@ -16,10 +16,10 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    //TODO: Remake to multiple select
-    choosePermission(permission){
-      const selected = this.set('permission', permission);
-      this.get('role.permissions').pushObject(selected);
+
+    choosePermission(ignore, permissionsArray){
+      const selected = this.set('permission', permissionsArray);
+      this.set('role.permissions', selected);
     },
 
     buttonClicked(roleParams) {

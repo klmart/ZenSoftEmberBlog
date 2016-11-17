@@ -7,19 +7,17 @@
         </div>
     </div>
 
-    <div class="form-group has-feedback {{if role.isValid 'has-success'}}">
-        <label class="col-sm-2 control-label">Permissions*</label>
-        <div class="col-sm-10">
-          {{#power-select-multiple
-            options=permissions
-            selected=permission
-            placeholder="Select permission"
-            onchange=(action "choosePermission" (mut ignore permissions))
-          as |permission|
-          }}
-            {{permission.name}}
-          {{/power-select-multiple}}
-        </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Blog Type</label>
+      {{#power-select
+        selected=permission
+        placeholder="Please, select one destination"
+        options=permissions
+        onchange=(action "choosePermission")
+      as |permission|
+      }}
+        {{permission.name}}
+      {{/power-select}}
     </div>
 
     <div class="form-group">
