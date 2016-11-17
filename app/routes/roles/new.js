@@ -7,7 +7,8 @@ export default Ember.Route.extend({
 
   actions: {
     saveRole(newRole){
-      newRole.save().then(() => {this.transitionTo('roles')});
+      newRole.save().then(() => {this.transitionTo('roles');
+      });
     },
 
     willTransition() {

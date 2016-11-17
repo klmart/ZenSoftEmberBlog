@@ -26,7 +26,7 @@ export default Authenticated.extend({
     deleteBlog(blog){
       let confirmation = confirm('Are you sure?');
       if (confirmation) {
-        this.deleteBlog(blog)
+        this.deleteBlog(blog);
       }
     },
 
@@ -38,8 +38,8 @@ export default Authenticated.extend({
         });
 
         blogs.forEach((blog) => {
-          this.deleteBlog(blog)
-        })
+          this.deleteBlog(blog);
+        });
       }
     },
 

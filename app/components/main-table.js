@@ -26,9 +26,9 @@ export default Ember.Component.extend({
         Ember.set(field, 'status', true);
         selected.forEach((selectedField) => {
           if (field.name === selectedField.name) {
-            Ember.set(field, 'status', false)
+            Ember.set(field, 'status', false);
           }
-        })
+        });
       });
     },
   }

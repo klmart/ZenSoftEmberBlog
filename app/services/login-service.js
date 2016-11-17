@@ -25,7 +25,7 @@ export default Ember.Service.extend({
   },
 
   setCurrentUser(user){
-    this.set('currentUser', user)
+    this.set('currentUser', user);
   },
 
   setLastLoginDate(user){
@@ -35,12 +35,12 @@ export default Ember.Service.extend({
 
   setPermissions(user){
     const th = this;
-    return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve) {
       return user.get('role.permissions').then((permissions) => {
         th.set('currentPermissions', permissions);
         resolve();
-      })
-    })
+      });
+    });
   }
 
 });

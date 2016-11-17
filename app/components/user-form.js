@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   user: undefined,
 
   roles: Ember.computed(function () {
-    return this.get('store').findAll('role')
+    return this.get('store').findAll('role');
   }),
 
   init(){
