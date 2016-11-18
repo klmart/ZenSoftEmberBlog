@@ -23,9 +23,9 @@
                   <p>Колличество постов: {{blog.postsCount}}</p>
               </div>
               <div class="panel-footer text-right">
-                {{!#check-permissions permissionCode="canEditAllBlogs"}}
+                {{#check-permissions permissionCode="canEditAllBlogs"}}
                   {{#link-to 'blogs.edit' blog.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
-                {{!/check-permissions}}
+                {{/check-permissions}}
                 {{#check-permissions permissionCode="canDeleteAllBlogs"}}
                     <button class="btn btn-danger btn-xs" {{action 'deleteBlog' blog}}>Delete</button>
                 {{/check-permissions}}
