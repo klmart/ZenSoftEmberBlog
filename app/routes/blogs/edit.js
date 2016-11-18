@@ -5,23 +5,18 @@ import Ember from 'ember';
 export default Authenticated.extend({
   loginService: Ember.inject.service('login-service'),
 
-  permissions: Ember.computed(function () {
-    return this.get('loginService.currentPermissions');
-  }),
-
   canEdit: 'canEditAllBlogs',
 
-  hasPermission: Ember.computed('permissions', function () {
-    return this.get('permissions').filter((permission) => {
+  hasPermission: Ember.computed('loginService.currentPermissions', function () {
+    return this.get('loginService.currentPermissions').find((permission) => {
       return (permission.get('code') === this.get('canEdit'));
     });
   }),
 
   model(params) {
     const blogPromise = this.store.findRecord('blog', params.blog_id);
-    const permission = this.get('hasPermission').get('firstObject');
 
-    if (permission) {
+    if (this.get('hasPermission')) {
       return blogPromise;
     } else {
       blogPromise.then((blog) => {
