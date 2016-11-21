@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  tagName: '',
   loginService: Ember.inject.service('login-service'),
   permission: undefined,
 
