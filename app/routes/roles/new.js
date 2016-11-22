@@ -11,6 +11,7 @@ export default Ember.Route.extend({
       });
     },
 
+    //TODO: now the new role doesn't removed from store
     willTransition() {
       // this.controller.get('model').unloadRecord();
     }

@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   init()
   {
     this._super(...arguments);
+
+    //TODO: why not use item directly? Also rename 'item'
     const userFromRoute = this.get('item');
     this.set('user', userFromRoute);
   },

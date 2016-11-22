@@ -11,9 +11,6 @@ export default Ember.Component.extend({
           this.sendAction('action', userParams);
         });
       });
-
-      //TODO: use action in params
-      //Done
     }
   }
 });

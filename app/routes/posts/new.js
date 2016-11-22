@@ -16,9 +16,6 @@ export default Authenticated.extend({
     }
   },
 
-  //TODO: same
-  //Moved to component
-
   actions: {
 
     savePost(newPost){

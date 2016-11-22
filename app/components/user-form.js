@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   init(){
     this._super(...arguments);
 
+    //TODO: rename variable
     const userFromeRoute = this.get('item') || this.get('store').createRecord('user');
     this.set('user', userFromeRoute);
   },

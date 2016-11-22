@@ -36,6 +36,7 @@ export default Ember.Service.extend({
   setPermissions(user){
     const th = this;
     return new Promise(function (resolve) {
+      //TODO: what will be if the new user is just created?
       return user.get('role.permissions').then((permissions) => {
         th.set('currentPermissions', permissions);
         resolve();

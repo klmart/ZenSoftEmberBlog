@@ -14,9 +14,6 @@ export default Authenticated.extend({
     return postPromise;
   },
 
-  //TODO: same
-  //Moved to component
-
   actions: {
 
     savePost(newPost) {
