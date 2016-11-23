@@ -12,9 +12,11 @@ export default Ember.Component.extend({
     chooseRole(user, test, role){
       const selected = this.set('role', role);
       user.set('role', selected);
-      user.save();
+      user.save().then(() => {
+        this.get('loginService').setPermissions(user);
+      });
       //TODO: use then() after save
-      this.get('loginService').setPermissions(user);
+      //Done
     }
   }
 });

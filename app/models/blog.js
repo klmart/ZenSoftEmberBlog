@@ -27,8 +27,6 @@ export default DS.Model.extend({
 
   isValid: Ember.computed.notEmpty('name'),
 
-  //TODO: refactor
-  //Done
   checkUser: Ember.computed(function () {
     return this.get('user.id') === this.get('loginService.currentUser.id');
   }),

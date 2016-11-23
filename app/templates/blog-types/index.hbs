@@ -1,6 +1,7 @@
 <h2>Blog Types</h2>
-{{#link-to 'blog-types.new' tagName="li"}}<a href="">Add new Blog type</a>{{/link-to}}
-
+  {{#link-to 'blog-types.new' class="btn btn-primary btn-xs" }} Add new Blog type {{/link-to}}
+<br>
+<br>
 {{#each model as |blogType|}}
     <div class="panel panel-default">
         <div class="panel-heading">

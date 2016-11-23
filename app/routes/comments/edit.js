@@ -12,9 +12,6 @@ export default Authenticated.extend({
     return commentPromise;
   },
 
-  //TODO: same
-  //Moved to component
-
   actions: {
 
     saveComment(newComment) {

@@ -8,9 +8,6 @@ export default Ember.Route.extend({
     });
   },
 
-  //TODO: same
-  //Moved to component
-
   actions: {
     saveComment(newComment){
       newComment.save().then((savedComment) => {

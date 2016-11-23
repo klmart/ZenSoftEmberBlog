@@ -4,7 +4,7 @@ export default Ember.Service.extend({
 
   store: Ember.inject.service('store'),
   currentUser: Ember.Object.create(),
-  currentPermissions: undefined,
+  currentPermissions: [],
 
   isAuthenticated: Ember.computed('currentUser.id', function () {
     return !!this.get('currentUser.id');
@@ -37,10 +37,14 @@ export default Ember.Service.extend({
     const th = this;
     return new Promise(function (resolve) {
       //TODO: what will be if the new user is just created?
-      return user.get('role.permissions').then((permissions) => {
-        th.set('currentPermissions', permissions);
-        resolve();
-      });
+      //Done
+      if (user.get('role.permissions')) {
+        return user.get('role.permissions').then((permissions) => {
+          th.set('currentPermissions', permissions);
+          resolve();
+        });
+      }
+      resolve();
     });
   }
 

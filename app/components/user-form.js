@@ -12,8 +12,9 @@ export default Ember.Component.extend({
     this._super(...arguments);
 
     //TODO: rename variable
-    const userFromeRoute = this.get('item') || this.get('store').createRecord('user');
-    this.set('user', userFromeRoute);
+    //Done
+    const userFromRoute = this.get('item') || this.get('store').createRecord('user');
+    this.set('user', userFromRoute);
   },
 
   actions: {

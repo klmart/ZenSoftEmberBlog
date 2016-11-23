@@ -8,19 +8,18 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Blog Type</label>
-            {{#power-select
-              selected=blogType
-              placeholder="Please, select one destination"
-              options=blogTypes
-              onchange=(action "chooseBlogType")
-            as |blogType|
-            }}
-              {{blogType.name}}
-            {{/power-select}}
         <div class="col-sm-10">
+          {{#power-select
+            selected=blogType
+            placeholder="Please, select one destination"
+            options=blogTypes
+            onchange=(action "chooseBlogType")
+          as |blogType|
+          }}
+            {{blogType.name}}
+          {{/power-select}}
         </div>
     </div>
-
 
     <div class="form-group">
         <label class="col-sm-2 control-label">Description</label>

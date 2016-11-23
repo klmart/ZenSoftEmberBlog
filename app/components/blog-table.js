@@ -9,8 +9,8 @@ export default Ember.Component.extend({
     this._super(...arguments);
 
     //TODO: why not use item directly? Also rename 'item'
-    const userFromRoute = this.get('item');
-    this.set('user', userFromRoute);
+    //Done
+    this.set('user', this.get('user'));
   },
 
   blogs: Ember.computed('user', function () {

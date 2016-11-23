@@ -28,8 +28,6 @@ export default Authenticated.extend({
     }
   },
 
-  //TODO: to components
-  //Moved to component
 
   actions: {
 
