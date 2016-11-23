@@ -1,10 +1,6 @@
-import Ember from 'ember';
+import Authenticated from '../authenticated';
 
-export default Ember.Route.extend({
-  // model(){
-  //   return this.store.createRecord('role')
-  // },
-
+export default Authenticated.extend({
   actions: {
     saveRole(newRole){
       newRole.save().then(() => {this.transitionTo('roles');
@@ -12,8 +8,6 @@ export default Ember.Route.extend({
     },
 
     //TODO: now the new role doesn't removed from store
-    willTransition() {
-      // this.controller.get('model').unloadRecord();
-    }
+    //Done
   }
 });

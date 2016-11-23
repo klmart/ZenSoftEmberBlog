@@ -15,6 +15,10 @@ export default Ember.Component.extend({
     this.set('role', roleFromRoute);
   },
 
+  willDestroyElement(){
+    this.get('role').rollbackAttributes();
+  },
+
   actions: {
 
     choosePermission(ignore, permissionsArray){

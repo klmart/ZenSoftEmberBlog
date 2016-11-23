@@ -8,8 +8,6 @@ export default Ember.Component.extend({
     return this.get('store').findAll('blog-type');
   }),
 
-  // init() {}, willInsertElement() {}, action-save();
-
   init(){
     this._super(...arguments);
 
@@ -17,6 +15,10 @@ export default Ember.Component.extend({
         user: this.get('loginService.currentUser')
       });
     this.set('blog', blogFromRoute);
+  },
+
+  willDestroyElement(){
+    this.get('blog').rollbackAttributes();
   },
 
   actions: {

@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Authenticated from '../authenticated';
 
-export default Ember.Route.extend({
+export default Authenticated.extend({
   model(params){
     return this.store.findRecord('permission', params.permission_id);
   },
