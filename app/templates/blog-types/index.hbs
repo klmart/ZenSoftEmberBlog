@@ -1,15 +1,23 @@
-<h2>Blog Types</h2>
-  {{#link-to 'blog-types.new' class="btn btn-primary btn-xs" }} Add new Blog type {{/link-to}}
-<br>
-<br>
-{{#each model as |blogType|}}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{blogType.name}}</h3>
-            <div class="text-right">
-              {{#link-to 'blog-types.edit' blogType.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+<h3>Blog Types</h3>
+{{#link-to 'blog-types.new' class="btn btn-primary btn-xs" }} Add new Blog type {{/link-to}}
+
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each model as |blogType|}}
+        <tr>
+            <td>{{blogType.name}}</td>
+            <td>
+              {{#link-to 'blog-types.edit' blogType.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
                 <button class="btn btn-danger btn-xs" {{action 'deleteBlogType' blogType}}>Delete</button>
-            </div>
-        </div>
-    </div>
-{{/each}}
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+
+</table>

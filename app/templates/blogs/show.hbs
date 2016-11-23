@@ -1,12 +1,1 @@
-<div class="jumbo show-listing">
-    <h2><strong>Имя блога: </strong> {{model.name}}</h2>
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>Description: </strong> {{model.description}}
-        </div>
-    </div>
-</div>
-  {{#if model.checkUser}}
-    {{#link-to 'posts.new' model class='btn btn-success btn-xs'}}Add new post {{/link-to}}
-  {{/if}}
 {{outlet}}

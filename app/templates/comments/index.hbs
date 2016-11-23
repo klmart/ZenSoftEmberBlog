@@ -1,13 +1,15 @@
-<h2>Comments</h2>
-<div class="row">
+<div class="comment-item">
+  {{#link-to 'comments.new' model class='btn btn-success btn-xs'}}Add new comment {{/link-to}}
+</div>
+
   {{#each model.comments as |comment|}}
-      <div class="col-md-4">
-          <div class="panel panel-default library-item">
-              <div class="panel-heading">
+      <div class="comment-list">
+          <div class="panel panel-default comment-item">
+              <div class="comment-author">
+                  <p>{{comment.user.email}}</p>
               </div>
-              <div class="panel-body">
-                  <p>Автор: {{comment.user.email}}</p>
-                  <p>Comment: {{comment.body}}</p>
+              <div class="panel-body comment">
+                  <p>{{comment.body}}</p>
               </div>
               <div class="panel-footer text-right">
                 {{#if comment.checkUser}}
@@ -18,4 +20,3 @@
           </div>
       </div>
   {{/each}}
-</div>

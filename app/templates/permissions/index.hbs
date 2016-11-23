@@ -1,7 +1,9 @@
 <h2>Permissions</h2>
-{{#link-to 'permissions.new' tagName="li"}}<a href="">Add new permission</a>{{/link-to}}
+{{#link-to 'permissions.new' class="btn btn-primary btn-xs" }} Add Permission {{/link-to}}
+<br>
+<br>
 
-<table class="table table-bordered">
+<table class="table table-condensed">
     <thead>
     <tr>
         <th>Permission Name</th>
@@ -16,7 +18,7 @@
           <td>{{permission.code}}</td>
           <td>
               <div class="text-right">
-                {{#link-to 'permissions.edit' permission.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+                {{#link-to 'permissions.edit' permission.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
                   <button class="btn btn-danger btn-xs" {{action 'deletePermission' permission}}>Delete</button>
               </div>
           </td>

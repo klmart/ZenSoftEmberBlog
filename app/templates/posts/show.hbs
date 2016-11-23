@@ -1,11 +1,13 @@
 <div class="jumbo show-listing">
-    <h2><strong>Имя Поста: </strong> {{model.title}}</h2>
-    <div class="right detail-section">
+    <div class="blog-name">
+        <h2><strong>{{model.title}}</strong></h2>
+    </div>
+
+    <div class="post-body">
         <div class="detail owner">
             <strong>Конетент: </strong> {{model.content}}
         </div>
     </div>
 </div>
 
-{{#link-to 'comments.new' model class='btn btn-success btn-xs'}}Add new comment {{/link-to}}
 {{outlet}}

@@ -1,75 +1,94 @@
 @import 'bootstrap';
 @import "ember-power-select";
+
 .navbar-default {
   background-color: #337ab7;
   border-color: #316089;
 }
+
 .navbar-default .navbar-brand {
   color: #ffffff;
 }
+
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #b4cfe7;
 }
+
 .navbar-default .navbar-text {
   color: #ffffff;
 }
+
 .navbar-default .navbar-nav > li > a {
   color: #ffffff;
 }
+
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #b4cfe7;
 }
+
 .navbar-default .navbar-nav > li > .dropdown-menu {
   background-color: #337ab7;
 }
+
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
   color: #ffffff;
 }
+
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
   color: #b4cfe7;
   background-color: #316089;
 }
+
 .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
   background-color: #316089;
 }
+
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
   color: #b4cfe7;
   background-color: #316089;
 }
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #b4cfe7;
   background-color: #316089;
 }
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   color: #b4cfe7;
   background-color: #316089;
 }
+
 .navbar-default .navbar-toggle {
   border-color: #316089;
 }
+
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #316089;
 }
+
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #ffffff;
 }
+
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
   border-color: #ffffff;
 }
+
 .navbar-default .navbar-link {
   color: #ffffff;
 }
+
 .navbar-default .navbar-link:hover {
   color: #b4cfe7;
 }
@@ -112,7 +131,7 @@ html {
 
 .panel.isChecked {
   border-color: red;
-  box-shadow: 0 1px 20px 0 #e00013 , 0 0 0 1px #a72727 ;
+  box-shadow: 0 1px 20px 0 #e00013, 0 0 0 1px #a72727;
 }
 
 .blog-checkBox {
@@ -130,7 +149,61 @@ html {
 
 .blog-description {
   height: 78px;
-  overflow:hidden;
+  overflow: hidden;
   margin-top: 10px;
   margin-bottom: 25px;
+}
+
+.blog-name {
+  text-align: center;
+}
+
+.blog-description-show {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.panel-title {
+  text-align: center;
+}
+
+.panel-body.post {
+  text-align: center;
+  line-height: 3;
+  overflow: hidden;
+  height: 226px;
+}
+
+.panel-footer {
+  height: 45px;
+}
+
+.post-body{
+  margin-top: 40px;
+  text-align: center;
+  line-height: 2;
+  padding-bottom: 40px;
+}
+
+.comment-item {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.comment-author {
+  margin-top: 10px;
+  text-align: center;
+  background-color: aliceblue;
+
+}
+.panel-body.comment {
+  height: 60px;
+  background-color: aliceblue;
+}
+
+.comment-list {
+  margin: 0 auto;
+  width: 700px;
+  background-color: aliceblue;
+
 }
