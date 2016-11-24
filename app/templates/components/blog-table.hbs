@@ -15,12 +15,12 @@
     <tbody>
     {{#each blogs as |blog|}}
         <tr>
-            <th>{{#link-to 'blogs.show' blog}}{{blog.name}}{{/link-to}}</th>
-            <th>{{blog.description}}</th>
-            <th>{{blog.createdMoment}}</th>
-            <th>{{blog.blogType.name}}</th>
-            <th>{{blog.postsCount}}</th>
-            <th>{{blog.user.email}}</th>
+            <td>{{#link-to 'blogs.show' blog}}{{blog.name}}{{/link-to}}</td>
+            <td>{{blog.description}}</td>
+            <td>{{blog.createdMoment}}</td>
+            <td>{{blog.blogType.name}}</td>
+            <td>{{blog.postsCount}}</td>
+            <td>{{blog.user.email}}</td>
         </tr>
     {{/each}}
     </tbody>
