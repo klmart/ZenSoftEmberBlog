@@ -30,14 +30,16 @@ export default Ember.Service.extend({
 
   setLastLoginDate(user){
     user.set('lastLoginDate', new Date());
+
+    //TODO: return promise from this method and use it in userInit. Abai need to do the same thing
     user.save();
   },
 
   setPermissions(user){
     const th = this;
     return new Promise(function (resolve) {
-      //TODO: what will be if the new user is just created?
-      //Done
+
+      //TODO: check for permissions.length
       if (user.get('role.permissions')) {
         return user.get('role.permissions').then((permissions) => {
           th.set('currentPermissions', permissions);

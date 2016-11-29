@@ -36,6 +36,8 @@ export default imageCropper.extend({
 
   actions: {
 
+
+    //TODO: same as Abai
     chooseBlogType(blogType){
       const selected = this.set('blogType', blogType);
       this.get('blog').set('blogType', selected);
@@ -56,7 +58,11 @@ export default imageCropper.extend({
       };
     },
 
+
+    //TODO: rename action.
     buttonClicked(blogParams) {
+
+      //TODO: why 'let'? move into if block
       let container = this.$(this.get('cropperContainer'));
       let croppedImage = container.cropper('getCroppedCanvas');
       if (this.get('hasImage')) {

@@ -8,8 +8,7 @@ export default Ember.Component.extend({
   {
     this._super(...arguments);
 
-    //TODO: why not use item directly? Also rename 'item'
-    //Done
+    //TODO: ???
     this.set('user', this.get('user'));
   },
 

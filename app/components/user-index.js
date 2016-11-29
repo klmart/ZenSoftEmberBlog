@@ -15,8 +15,6 @@ export default Ember.Component.extend({
       user.save().then(() => {
         this.get('loginService').setPermissions(user);
       });
-      //TODO: use then() after save
-      //Done
     }
   }
 });

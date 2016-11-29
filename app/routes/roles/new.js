@@ -5,9 +5,6 @@ export default Authenticated.extend({
     saveRole(newRole){
       newRole.save().then(() => {this.transitionTo('roles');
       });
-    },
-
-    //TODO: now the new role doesn't removed from store
-    //Done
+    }
   }
 });

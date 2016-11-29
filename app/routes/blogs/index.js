@@ -17,6 +17,8 @@ export default Authenticated.extend({
     const promiseUser = blog.get('user');
     promiseUser.then((user) => {
       user.get('blogs').removeObject(blog);
+
+      //TODO: use user.save().then. Also you need to remove blog's posts
       user.save();
       blog.destroyRecord();
     });
