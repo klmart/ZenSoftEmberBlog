@@ -49,7 +49,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" {{action 'buttonClicked' blog}} disabled={{unless blog.isValid
+            <button type="submit" class="btn btn-default" {{action 'saveBlog' blog}} disabled={{unless blog.isValid
                                                                                                             true}}>{{buttonLabel}}</button>
         </div>
     </div>

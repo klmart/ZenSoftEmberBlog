@@ -7,13 +7,15 @@ export default Authenticated.extend({
 
   actions: {
     saveBlogType(newBlogType){
-      newBlogType.save().then(() => {
-        this.transitionTo('blog-types');
-      });
+      newBlogType.save()
+                 .then(() => {
+                   this.transitionTo('blog-types');
+                 });
     },
 
     willTransition() {
-      this.controller.get('model').unloadRecord();
+      this.controller.get('model')
+          .unloadRecord();
     }
   }
 

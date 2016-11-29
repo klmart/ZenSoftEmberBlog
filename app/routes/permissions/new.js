@@ -7,11 +7,14 @@ export default Authenticated.extend({
 
   actions: {
     savePermission(newPermission){
-      newPermission.save().then(()=> { this.transitionTo('permissions');
-      });
+      newPermission.save()
+                   .then(()=> {
+                     this.transitionTo('permissions');
+                   });
     },
     willTransition(){
-      this.controller.get('model').unloadRecord();
+      this.controller.get('model')
+          .unloadRecord();
     }
   }
 });

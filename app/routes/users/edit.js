@@ -15,7 +15,8 @@ export default Authenticated.extend({
   actions: {
 
     saveUser(newUser) {
-      newUser.save().then(() => this.transitionTo('users.show', newUser.id));
+      newUser.save()
+             .then(() => this.transitionTo('users.show', newUser.id));
     },
 
     willTransition(transition) {

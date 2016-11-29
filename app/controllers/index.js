@@ -2,11 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-  headerMessage: 'Coming Soon',
+  headerMessage:   'Coming Soon',
   responseMessage: '',
-  emailAddress: '',
+  emailAddress:    '',
 
-  isValid: Ember.computed.match('emailAddress', /^.+@.+\..+$/),
+  isValid:    Ember.computed.match('emailAddress', /^.+@.+\..+$/),
   isDisabled: Ember.computed.not('isValid'),
 
   actions: {
@@ -18,10 +18,11 @@ export default Ember.Controller.extend({
         email: email
       });
 
-      newInvitation.save().then((response) => {
-        this.set('responseMessage', `Thank you! We saved your email address with the following id: ${response.get('id')}`);
-        this.set('emailAddress', '');
-      });
+      newInvitation.save()
+                   .then((response) => {
+                     this.set('responseMessage', `Thank you! We saved your email address with the following id: ${response.get('id')}`);
+                     this.set('emailAddress', '');
+                   });
 
     }
   }

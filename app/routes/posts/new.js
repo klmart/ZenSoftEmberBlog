@@ -19,18 +19,22 @@ export default Authenticated.extend({
   actions: {
 
     savePost(newPost){
-      newPost.save().then((savedPost) => {
-        const blog = savedPost.get('blog');
-        blog.get('posts').pushObject(savedPost);
+      newPost.save()
+             .then((savedPost) => {
+               const blog = savedPost.get('blog');
+               blog.get('posts')
+                   .pushObject(savedPost);
 
-        blog.save().then(() => {
-          this.transitionTo('posts');
-        });
-      });
+               blog.save()
+                   .then(() => {
+                     this.transitionTo('posts');
+                   });
+             });
     },
 
     willTransition() {
-      this.controller.get('model').unloadRecord();
+      this.controller.get('model')
+          .unloadRecord();
     }
   }
 });

@@ -1,4 +1,4 @@
-import Authenticated from '../authenticated';
+import Authenticated from "../authenticated";
 
 export default Authenticated.extend({
   model(){

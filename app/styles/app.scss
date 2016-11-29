@@ -130,7 +130,7 @@ html {
   padding: 2px;
   padding-bottom: 2px;
   overflow: hidden;
-  img{
+  img {
     max-width: 100%;
   }
 }
@@ -214,7 +214,6 @@ html {
   background-color: aliceblue;
 }
 
-
 .cropper-container {
   min-height: 300px;
   max-width: 500px;
@@ -222,6 +221,7 @@ html {
     max-width: 100%; /* This rule is very important, please do not ignore this! */
   }
 }
+
 .cropper-preview {
   overflow: hidden;
   transform: none;
@@ -236,7 +236,8 @@ html {
   left: 650px;
   border: 1px solid #a4a4a5;
 }
-.blog-image{
+
+.blog-image {
   height: 250px;
 
 }

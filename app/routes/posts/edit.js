@@ -1,13 +1,12 @@
 import Authenticated from '../authenticated';
 
-
 export default Authenticated.extend({
 
   model(params) {
-  const postPromise = this.store.findRecord('post', params.post_id);
+    const postPromise = this.store.findRecord('post', params.post_id);
 
     postPromise.then((post) => {
-      if(!post.get('checkUser')){
+      if (!post.get('checkUser')) {
         this.transitionTo('posts');
       }
     });
@@ -17,7 +16,8 @@ export default Authenticated.extend({
   actions: {
 
     savePost(newPost) {
-      newPost.save().then(() => this.transitionTo('posts'));
+      newPost.save()
+             .then(() => this.transitionTo('posts'));
     },
 
     willTransition(transition) {

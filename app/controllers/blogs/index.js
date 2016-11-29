@@ -2,18 +2,19 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   //TODO: rename sortParam
-  queryParams: ['sortParam'],
-  sortParam: null,
+  //Done
+  queryParams: ['sortBy'],
+  sortBy:      null,
 
-  filteredBlogs: Ember.computed('sortParam', 'model', function () {
+  filteredBlogs: Ember.computed('sortBy', 'model', function () {
 
     //TODO: why var?
-    var sortParam = this.get('sortParam');
-    var blogs = this.get('model');
+    //Done
+    const userId = this.get('sortBy');
+    const blogs  = this.get('model');
 
-
-    if (sortParam) {
-      return blogs.filterBy('user.id', sortParam);
+    if (userId) {
+      return blogs.filterBy('user.id', userId);
     } else {
       return blogs;
     }

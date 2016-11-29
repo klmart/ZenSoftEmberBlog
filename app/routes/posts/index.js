@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model(){
-    return this.modelFor('blogs.show').reload();
+    return this.modelFor('blogs.show')
+               .reload();
   },
 
   actions: {
@@ -13,7 +14,9 @@ export default Ember.Route.extend({
         const blog = post.get('blog');
 
         //TODO: same as Abai. Use save().then and delete comments
-        blog.get('posts').removeObject(post);
+        //remove with service
+        blog.get('posts')
+            .removeObject(post);
         blog.save();
         post.destroyRecord();
       }

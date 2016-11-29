@@ -10,18 +10,22 @@ export default Ember.Route.extend({
 
   actions: {
     saveComment(newComment){
-      newComment.save().then((savedComment) => {
-        const post = savedComment.get('post');
-        post.get('comments').pushObject(savedComment);
+      newComment.save()
+                .then((savedComment) => {
+                  const post = savedComment.get('post');
+                  post.get('comments')
+                      .pushObject(savedComment);
 
-        post.save().then(() => {
-          this.transitionTo('comments');
-        });
-      });
+                  post.save()
+                      .then(() => {
+                        this.transitionTo('comments');
+                      });
+                });
     },
 
     willTransition(){
-      this.controller.get('model').unloadRecord();
+      this.controller.get('model')
+          .unloadRecord();
     }
   }
 });

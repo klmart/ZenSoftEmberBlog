@@ -2,21 +2,24 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
-  role: undefined,
+  role:  undefined,
 
   permissions: Ember.computed(function () {
-    return this.get('store').findAll('permission');
+    return this.get('store')
+               .findAll('permission');
   }),
 
   init(){
     this._super(...arguments);
 
-    const roleFromRoute = this.get('item') || this.get('store').createRecord('role');
+    const roleFromRoute = this.get('item') || this.get('store')
+                                                  .createRecord('role');
     this.set('role', roleFromRoute);
   },
 
   willDestroyElement(){
-    this.get('role').rollbackAttributes();
+    this.get('role')
+        .rollbackAttributes();
   },
 
   actions: {

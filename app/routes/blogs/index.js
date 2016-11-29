@@ -1,6 +1,5 @@
 import Authenticated from '../authenticated';
 
-
 export default Authenticated.extend({
 
   model() {
@@ -9,16 +8,18 @@ export default Authenticated.extend({
 
   resetController(controller, isExiting, transition) {
     if (transition) {
-      controller.set('sortParam', null);
+      controller.set('sortBy', null);
     }
   },
 
   deleteBlog(blog){
     const promiseUser = blog.get('user');
     promiseUser.then((user) => {
-      user.get('blogs').removeObject(blog);
+      user.get('blogs')
+          .removeObject(blog);
 
       //TODO: use user.save().then. Also you need to remove blog's posts
+      //Service
       user.save();
       blog.destroyRecord();
     });

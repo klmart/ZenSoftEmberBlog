@@ -4,9 +4,9 @@ import moment from 'moment';
 
 export default DS.Model.extend({
 
-  name: DS.attr('string'),
+  name:        DS.attr('string'),
   description: DS.attr('string'),
-  image: DS.attr('string', {defaultValue: '/images/default.jpg'}),
+  image:       DS.attr('string', {defaultValue: '/images/default.jpg'}),
 
   createdDate: DS.attr('date', {
     defaultValue() {
@@ -15,7 +15,8 @@ export default DS.Model.extend({
   }),
 
   createdMoment: Ember.computed('createdDate', function () {
-    return moment(this.get('createdDate')).format('YYYY-MM-DD');
+    return moment(this.get('createdDate'))
+      .format('YYYY-MM-DD');
   }),
 
   blogType: DS.belongsTo('blog-type'),
@@ -34,7 +35,8 @@ export default DS.Model.extend({
 
   blogCheckBox: Ember.observer(
     'isChecked',
-    function () {}
+    function () {
+    }
   )
 
 });

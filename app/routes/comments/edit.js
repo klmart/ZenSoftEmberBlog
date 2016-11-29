@@ -15,7 +15,8 @@ export default Authenticated.extend({
   actions: {
 
     saveComment(newComment) {
-      newComment.save().then(() => this.transitionTo('comments'));
+      newComment.save()
+                .then(() => this.transitionTo('comments'));
     },
 
     willTransition(transition) {

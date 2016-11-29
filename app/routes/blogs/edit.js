@@ -1,16 +1,16 @@
 import Authenticated from '../authenticated';
 import Ember from 'ember';
 
-
 export default Authenticated.extend({
   loginService: Ember.inject.service('login-service'),
 
   canEdit: 'canEditAllBlogs',
 
   hasPermission: Ember.computed('loginService.currentPermissions', function () {
-    return this.get('loginService.currentPermissions').find((permission) => {
-      return (permission.get('code') === this.get('canEdit'));
-    });
+    return this.get('loginService.currentPermissions')
+               .find((permission) => {
+                 return (permission.get('code') === this.get('canEdit'));
+               });
   }),
 
   model(params) {
@@ -28,12 +28,12 @@ export default Authenticated.extend({
     }
   },
 
-
   actions: {
 
     saveBlog(newBlog)
     {
-      newBlog.save().then(() => this.transitionTo('blogs'));
+      newBlog.save()
+             .then(() => this.transitionTo('blogs'));
     },
 
     willTransition(transition)

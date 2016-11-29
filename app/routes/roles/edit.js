@@ -7,9 +7,10 @@ export default Authenticated.extend({
 
   actions: {
     saveRole(saveBlog){
-      saveBlog.save().then(() => {
-        this.transitionTo('roles');
-      });
+      saveBlog.save()
+              .then(() => {
+                this.transitionTo('roles');
+              });
     },
 
     willTransition(transition) {
