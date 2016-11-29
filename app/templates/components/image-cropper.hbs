@@ -1,0 +1,15 @@
+{{yield}}
+
+{{!input type="file" value=uploadFile class="form-control" placeholder="Image!"}}
+
+<input type="file" onchange={{action "uploadImg"}}>
+<button {{action "cropImg"}}>Upload Image</button>
+
+<div class="cropper">
+    <div class="cropper-preview">
+    </div>
+
+    <div class="cropper-container">
+        <img id="img" src="/noimage.jpg">
+    </div>
+</div>

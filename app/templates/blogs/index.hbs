@@ -1,4 +1,3 @@
-
 <div class="blogs-buttons-menu">
   {{#link-to 'blogs.new' class="btn btn-primary btn-xs" }} Add new {{/link-to}}
   {{#check-permissions permissionCode="canDeleteAllBlogs"}}
@@ -18,11 +17,12 @@
               </div>
               <div class="panel-body">
                   <p>Автор блога: {{blog.user.email}}</p>
-                <div class="blog-description">
-                    <p>Description: {{blog.description}}</p>
-                </div>
-                  <p>Blog type: {{blog.blogType.name}}</p>
-                  <p>Created Date: {{blog.createdMoment}}</p>
+                  <div class="blog-description">
+                      <p>Description: {{blog.description}}</p>
+                  </div>
+                  <div class="blog-image">
+                      <img src={{blog.image}}>
+                  </div>
               </div>
               <div class="panel-footer text-right">
                 {{#check-permissions permissionCode="canEditAllBlogs"}}

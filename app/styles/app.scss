@@ -126,7 +126,13 @@ html {
 }
 
 .panel-body {
-  height: 200px;
+  height: 400px;
+  padding: 2px;
+  padding-bottom: 2px;
+  overflow: hidden;
+  img{
+    max-width: 100%;
+  }
 }
 
 .panel.isChecked {
@@ -148,7 +154,7 @@ html {
 }
 
 .blog-description {
-  height: 78px;
+  height: 20px;
   overflow: hidden;
   margin-top: 10px;
   margin-bottom: 25px;
@@ -178,7 +184,7 @@ html {
   height: 45px;
 }
 
-.post-body{
+.post-body {
   margin-top: 40px;
   text-align: center;
   line-height: 2;
@@ -196,6 +202,7 @@ html {
   background-color: aliceblue;
 
 }
+
 .panel-body.comment {
   height: 60px;
   background-color: aliceblue;
@@ -205,5 +212,31 @@ html {
   margin: 0 auto;
   width: 700px;
   background-color: aliceblue;
+}
+
+
+.cropper-container {
+  min-height: 300px;
+  max-width: 500px;
+  img {
+    max-width: 100%; /* This rule is very important, please do not ignore this! */
+  }
+}
+.cropper-preview {
+  overflow: hidden;
+  transform: none;
+  display: block;
+  height: 200px;
+  width: 200px;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+  max-height: none;
+  position: absolute;
+  left: 650px;
+  border: 1px solid #a4a4a5;
+}
+.blog-image{
+  height: 250px;
 
 }

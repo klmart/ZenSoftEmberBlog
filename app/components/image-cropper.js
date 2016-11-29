@@ -2,23 +2,15 @@ import imageCropper from 'ember-cli-image-cropper/components/image-cropper';
 import Ember from 'ember';
 
 export default imageCropper.extend({
-  store: Ember.inject.service(),
   blog: undefined,
-  hasImage: false,
-
-  blogTypes: Ember.computed(function () {
-    return this.get('store').findAll('blog-type');
-  }),
 
   init(){
     this._super(...arguments);
-
-    const blogFromRoute = this.get('item') || this.get('store').createRecord('blog', {
-        user: this.get('loginService.currentUser')
-      });
-    this.set('blog', blogFromRoute);
+    const blog = this.get('item');
+    this.set('blog', blog);
   },
 
+//override default options of cropper
   minContainerWidth: 200,
   minContainerHeight: 200,
   aspectRatio: 0,
@@ -30,16 +22,7 @@ export default imageCropper.extend({
   previewClass: '.cropper-preview',
   croppedAvatar: null,
 
-  willDestroyElement(){
-    this.get('blog').rollbackAttributes();
-  },
-
   actions: {
-
-    chooseBlogType(blogType){
-      const selected = this.set('blogType', blogType);
-      this.get('blog').set('blogType', selected);
-    },
 
     uploadImg: function (event) {
       const cropperContainer = this.$(this.get('cropperContainer'));
@@ -48,7 +31,6 @@ export default imageCropper.extend({
       const image = event.target.files[0];
       if (image) {
         fileReader.readAsDataURL(image);
-        this.set('hasImage', true)
       }
 
       fileReader.onloadend = () => {
@@ -56,15 +38,12 @@ export default imageCropper.extend({
       }
     },
 
-    buttonClicked(blogParams) {
+    cropImg: function () {
+
       let container = this.$(this.get('cropperContainer'));
       let croppedImage = container.cropper('getCroppedCanvas');
-      if (this.get('hasImage')) {
-        this.get('blog').set('image', croppedImage.toDataURL());
-      }
-      this.sendAction('action', blogParams);
-
+      this.set('croppedAvatar', croppedImage);
+      this.get('blog').set('image', croppedImage.toDataURL());
     }
-
   }
 });
