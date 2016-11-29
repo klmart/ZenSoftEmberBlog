@@ -48,12 +48,12 @@ export default imageCropper.extend({
       const image = event.target.files[0];
       if (image) {
         fileReader.readAsDataURL(image);
-        this.set('hasImage', true)
+        this.set('hasImage', true);
       }
 
       fileReader.onloadend = () => {
         cropperContainer.cropper('replace', fileReader.result);
-      }
+      };
     },
 
     buttonClicked(blogParams) {
