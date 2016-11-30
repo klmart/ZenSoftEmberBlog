@@ -4,6 +4,9 @@ export function initialize(application) {
   application.inject('component', 'loginService', 'service:login-service');
   application.inject('controller', 'loginService', 'service:login-service');
   application.inject('model', 'loginService', 'service:login-service');
+
+  application.inject('route', 'commentService', 'service:comment-service');
+
 }
 
 export default {

@@ -8,14 +8,7 @@ export default Ember.Route.extend({
 
   actions: {
     deleteComment(comment){
-      let confirmation = confirm('Are you sure?');
-      if (confirmation) {
-        const post = comment.get('post');
-        post.get('comments')
-            .removeObject(comment);
-        post.save();
-        comment.destroyRecord();
-      }
+      this.commentService.removeComment(comment);
     }
   }
 });
