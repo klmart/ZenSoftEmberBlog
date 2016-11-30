@@ -8,10 +8,13 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    deletePost(post){
-      this.postService.removePost(post);
-      //TODO: same as Abai. Use save().then and delete comments
+    //TODO: same as Abai. Use save().then and delete comments
 
+    deletePost(post){
+      let confirmation = confirm('Are you sure?');
+      if (confirmation) {
+        this.postService.removePost(post);
+      }
     }
   }
 

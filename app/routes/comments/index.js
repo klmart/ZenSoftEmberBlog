@@ -8,7 +8,10 @@ export default Ember.Route.extend({
 
   actions: {
     deleteComment(comment){
-      this.commentService.removeComment(comment);
+      let confirmation = confirm('Are you sure?');
+      if (confirmation) {
+        this.commentService.removeComment(comment);
+      }
     }
   }
 });

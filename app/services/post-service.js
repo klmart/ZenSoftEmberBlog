@@ -1,15 +1,27 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-  removePost(post){
-    let confirmation = confirm('Are you sure?');
-    if (confirmation) {
-      const blog = post.get('blog');
+  commentService: Ember.inject.service(),
 
-      blog.get('posts')
-          .removeObject(post);
-      blog.save();
-      post.destroyRecord();
-    }
+  removeComments(post){
+    post.get('comments')
+        .then((comments) => {
+          comments.forEach((comment) => {
+            console.log('start remove comment');
+            this.get('commentService')
+                .removeComment(comment);
+          });
+        })
+  },
+
+  removePost(post){
+    this.removeComments(post);
+    const blog = post.get('blog');
+    blog.get('posts')
+        .removeObject(post);
+    blog.save();
+
+    post.destroyRecord();
   }
+
 });
