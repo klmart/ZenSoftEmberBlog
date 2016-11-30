@@ -7,6 +7,7 @@ export function initialize(application) {
 
   application.inject('route', 'commentService', 'service:comment-service');
   application.inject('route', 'postService', 'service:post-service');
+  application.inject('route', 'blogService', 'service:blog-service');
 
 }
 

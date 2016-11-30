@@ -7,7 +7,6 @@ export default Ember.Service.extend({
     post.get('comments')
         .then((comments) => {
           comments.forEach((comment) => {
-            console.log('start remove comment');
             this.get('commentService')
                 .removeComment(comment);
           });
@@ -16,12 +15,23 @@ export default Ember.Service.extend({
 
   removePost(post){
     this.removeComments(post);
+    const user = post.get('user');
+    user.get('posts')
+        .then((posts) => {
+          posts.removeObject(post);
+        });
+    user.then((user) => {
+      user.save();
+    });
+
     const blog = post.get('blog');
     blog.get('posts')
-        .removeObject(post);
+        .then((posts) => {
+          posts.removeObject(post);
+        });
     blog.save();
-
     post.destroyRecord();
+
   }
 
 });
