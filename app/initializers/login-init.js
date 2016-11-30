@@ -6,6 +6,7 @@ export function initialize(application) {
   application.inject('model', 'loginService', 'service:login-service');
 
   application.inject('route', 'commentService', 'service:comment-service');
+  application.inject('route', 'postService', 'service:post-service');
 
 }
 
