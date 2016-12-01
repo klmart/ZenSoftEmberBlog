@@ -1,4 +1,4 @@
-import Authenticated from '../authenticated';
+import Authenticated from '../../../routes/authenticated';
 
 export default Authenticated.extend({
   actions: {
