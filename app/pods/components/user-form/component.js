@@ -18,14 +18,14 @@ export default Ember.Component.extend({
 
   actions: {
     chooseRole(role){
+      //ToDo: Испарвить баг (когда Юзеру селектишь роль user и переходишь в блоги пермишны не срабатывают)
       const selected = this.set('role', role);
       this.get('user')
           .set('role', selected);
     },
 
-    buttonClicked(userParams) {
-      console.log(userParams.get('firstName'));
-      this.sendAction('action', userParams);
+    buttonClicked() {
+      this.sendAction('action', this.get('user'));
     }
   }
 });

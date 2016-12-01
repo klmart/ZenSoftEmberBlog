@@ -6,7 +6,7 @@ export default DS.Model.extend({
 
   name:        DS.attr('string'),
   description: DS.attr('string'),
-  image:       DS.attr('string', {defaultValue: '/images/default.jpg'}),
+  image:       DS.attr('string', {defaultValue: '/images/default.png'}),
 
   createdDate: DS.attr('date', {
     defaultValue() {

@@ -40,11 +40,10 @@ export default imageCropper.extend({
   actions: {
 
     //TODO: same as Abai
+    //Done
 
     chooseBlogType(blogType){
       const selected = this.set('blogType', blogType);
-      this.get('blog')
-          .set('blogType', selected);
     },
 
     uploadImg: function (event) {
@@ -65,7 +64,7 @@ export default imageCropper.extend({
 
     //TODO: rename action.
     //Done
-    saveBlog(blogParams) {
+    saveBlog() {
 
       //TODO: why 'let'? move into if block
       //Done
@@ -76,7 +75,7 @@ export default imageCropper.extend({
         this.get('blog')
             .set('image', croppedImage.toDataURL());
       }
-      this.sendAction('action', blogParams);
+      this.sendAction('action', this.get('blog'));
     }
   }
 });

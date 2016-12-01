@@ -29,8 +29,8 @@ export default Ember.Component.extend({
       this.set('role.permissions', selected);
     },
 
-    buttonClicked(roleParams) {
-      this.sendAction('action', roleParams);
+    buttonClicked() {
+      this.sendAction('action', this.get('role'));
     }
   }
 });

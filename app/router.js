@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function () {
-  this.route('blogs', function () {
+  this.route('blogs', {path: '/'}, function () {
     this.route('new');
     this.route('edit', {path: '/:blog_id/edit'});
 
@@ -18,6 +18,7 @@ Router.map(function () {
         this.route('show', {path: '/:post_id'}, function () {
           this.route('comments', {resetNamespace: true}, function () {
             this.route('new');
+            this.route('edit', {path: '/:comment_id/edit'});
             this.route('edit', {path: '/:comment_id/edit'});
           });
         });

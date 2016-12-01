@@ -25,8 +25,10 @@ export default Ember.Service.extend({
 
   userInit(user){
     this.setCurrentUser(user);
-    this.setLastLoginDate(user);
-    return this.setPermissions(user);
+    return this.setLastLoginDate(user)
+               .then(() => {
+                 return this.setPermissions(user);
+               });
   },
 
   setCurrentUser(user){
@@ -37,7 +39,8 @@ export default Ember.Service.extend({
     user.set('lastLoginDate', new Date());
 
     //TODO: return promise from this method and use it in userInit. Abai need to do the same thing
-    user.save();
+    //Done
+    return user.save();
   },
 
   setPermissions(user){

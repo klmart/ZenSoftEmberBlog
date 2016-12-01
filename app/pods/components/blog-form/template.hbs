@@ -11,11 +11,13 @@
     <div class="col-sm-10">
 
       <!-- TODO: same as Abai -->
+      <!--Done-->
       {{#power-select
-        selected=blogType
+        selected=blog.blogType
         placeholder="Please, select one destination"
         options=blogTypes
-        onchange=(action "chooseBlogType")
+        onchange=(action (mut blog.blogType) value=blogType)
+
       as |blogType|
       }}
         {{blogType.name}}

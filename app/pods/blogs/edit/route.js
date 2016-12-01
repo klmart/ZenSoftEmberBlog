@@ -1,4 +1,4 @@
-import Authenticated from '../../../routes/authenticated';
+import Authenticated from '../../authenticated/route';
 import Ember from 'ember';
 
 export default Authenticated.extend({
