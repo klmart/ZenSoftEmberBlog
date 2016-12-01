@@ -3,27 +3,27 @@
 <br>
 <br>
 <table class="table table-condensed">
-    <thead>
+  <thead>
+  <tr>
+    <th>Role Name</th>
+    <th>Permissions</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each model as |role|}}
     <tr>
-        <th>Role Name</th>
-        <th>Permissions</th>
-        <th>Actions</th>
+      <td>{{role.name}}</td>
+    <td>
+      {{#each role.permissions as |permission|}}
+        <td>{{permission.name}},</td>
+      {{/each}}
+      </td>
+      <td>
+        {{#link-to 'roles.edit' role.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
+        <button class="btn btn-danger btn-xs" {{action 'deleteRole' role}}>Delete</button>
+      </td>
     </tr>
-    </thead>
-    <tbody>
-    {{#each model as |role|}}
-        <tr>
-            <td>{{role.name}}</td>
-        <td>
-          {{#each role.permissions as |permission|}}
-              <td>{{permission.name}},</td>
-          {{/each}}
-            </td>
-            <td>
-              {{#link-to 'roles.edit' role.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
-                <button class="btn btn-danger btn-xs" {{action 'deleteRole' role}}>Delete</button>
-            </td>
-        </tr>
-    {{/each}}
-    </tbody>
+  {{/each}}
+  </tbody>
 </table>

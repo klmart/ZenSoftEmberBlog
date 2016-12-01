@@ -1,56 +1,56 @@
 <div class="form-horizontal">
-    <div class="form-group has-feedback {{if blog.isValid 'has-success'}}">
-        <label class="col-sm-2 control-label">Name*</label>
-        <div class="col-sm-10">
-          {{input type="text" value=blog.name class="form-control" placeholder="The name of the Blog"}}
-          {{#if blog.isValid}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
-        </div>
+  <div class="form-group has-feedback {{if blog.isValid 'has-success'}}">
+    <label class="col-sm-2 control-label">Name*</label>
+    <div class="col-sm-10">
+      {{input type="text" value=blog.name class="form-control" placeholder="The name of the Blog"}}
+      {{#if blog.isValid}}<span class="glyphicon glyphicon-ok form-control-feedback"></span>{{/if}}
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Blog Type</label>
-        <div class="col-sm-10">
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Blog Type</label>
+    <div class="col-sm-10">
 
-          <!-- TODO: same as Abai -->
-          {{#power-select
-            selected=blogType
-            placeholder="Please, select one destination"
-            options=blogTypes
-            onchange=(action "chooseBlogType")
-          as |blogType|
-          }}
-            {{blogType.name}}
-          {{/power-select}}
-        </div>
+      <!-- TODO: same as Abai -->
+      {{#power-select
+        selected=blogType
+        placeholder="Please, select one destination"
+        options=blogTypes
+        onchange=(action "chooseBlogType")
+      as |blogType|
+      }}
+        {{blogType.name}}
+      {{/power-select}}
     </div>
+  </div>
 
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Image</label>
-        <div class="col-sm-10">
-            <input type="file" onchange={{action "uploadImg"}}>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Image</label>
+    <div class="col-sm-10">
+      <input type="file" onchange={{action "uploadImg"}}>
 
-            <div class="cropper">
-                <div class="cropper-preview">
-                </div>
-
-                <div class="cropper-container">
-                    <img id="img" src="">
-                </div>
-            </div>
+      <div class="cropper">
+        <div class="cropper-preview">
         </div>
-    </div>
 
-
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Description</label>
-        <div class="col-sm-10">
-          {{input type="text" value=blog.description class="form-control" placeholder="The Description of the Blog"}}
+        <div class="cropper-container">
+          <img id="img" src="">
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default" {{action 'saveBlog' blog}} disabled={{unless blog.isValid
-                                                                                                            true}}>{{buttonLabel}}</button>
-        </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+      {{input type="text" value=blog.description class="form-control" placeholder="The Description of the Blog"}}
     </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" {{action 'saveBlog' blog}} disabled={{unless blog.isValid
+                                                                                                 true}}>{{buttonLabel}}</button>
+    </div>
+  </div>
 </div>

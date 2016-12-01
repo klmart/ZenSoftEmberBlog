@@ -4,25 +4,25 @@
 <br>
 
 <table class="table table-condensed">
-    <thead>
+  <thead>
+  <tr>
+    <th>Permission Name</th>
+    <th>Permission Code</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each model as |permission|}}
     <tr>
-        <th>Permission Name</th>
-        <th>Permission Code</th>
-        <th>Actions</th>
+      <td>{{permission.name}}</td>
+      <td>{{permission.code}}</td>
+      <td>
+        <div class="text-right">
+          {{#link-to 'permissions.edit' permission.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deletePermission' permission}}>Delete</button>
+        </div>
+      </td>
     </tr>
-    </thead>
-    <tbody>
-    {{#each model as |permission|}}
-      <tr>
-          <td>{{permission.name}}</td>
-          <td>{{permission.code}}</td>
-          <td>
-              <div class="text-right">
-                {{#link-to 'permissions.edit' permission.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
-                  <button class="btn btn-danger btn-xs" {{action 'deletePermission' permission}}>Delete</button>
-              </div>
-          </td>
-      </tr>
-    {{/each}}
-    </tbody>
+  {{/each}}
+  </tbody>
 </table>

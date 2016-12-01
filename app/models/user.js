@@ -9,20 +9,28 @@ export default DS.Model.extend({
   lastName:  DS.attr('string'),
 
   lastLoginDate:   DS.attr('date'),
-  lastLoginMoment: Ember.computed('lastLoginDate', function () {
-    return moment(this.get('lastLoginDate'))
-      .format('YYYY-MM-DD, HH:mm');
-  }),
-
-  registrationDate:   DS.attr('date', {
-    defaultValue(){
-      return new Date();
+  lastLoginMoment: Ember.computed(
+    'lastLoginDate',
+    function () {
+      return moment(this.get('lastLoginDate'))
+        .format('YYYY-MM-DD, HH:mm');
     }
-  }),
-  registrationMoment: Ember.computed('registrationDate', function () {
-    return moment(this.get('registrationDate'))
-      .format('YYYY-MM-DD');
-  }),
+  ),
+
+  registrationDate: DS.attr('date', {
+      defaultValue(){
+        return new Date();
+      }
+    }
+  ),
+
+  registrationMoment: Ember.computed(
+    'registrationDate',
+    function () {
+      return moment(this.get('registrationDate'))
+        .format('YYYY-MM-DD');
+    }
+  ),
 
   blogsCount: Ember.computed(function () {
     return this.get('blogs.length');
@@ -33,8 +41,11 @@ export default DS.Model.extend({
   comments: DS.hasMany('comment'),
   role:     DS.belongsTo('role'),
 
-  checkUser: Ember.computed('loginService.currentUser.id', function () {
-    return this.get('id') === this.get('loginService.currentUser.id');
-  }),
+  checkUser: Ember.computed(
+    'loginService.currentUser.id',
+    function () {
+      return this.get('id') === this.get('loginService.currentUser.id');
+    }
+  ),
 
 });

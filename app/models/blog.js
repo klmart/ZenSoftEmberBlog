@@ -14,10 +14,13 @@ export default DS.Model.extend({
     }
   }),
 
-  createdMoment: Ember.computed('createdDate', function () {
-    return moment(this.get('createdDate'))
-      .format('YYYY-MM-DD');
-  }),
+  createdMoment: Ember.computed(
+    'createdDate',
+    function () {
+      return moment(this.get('createdDate'))
+        .format('YYYY-MM-DD');
+    }
+  ),
 
   blogType: DS.belongsTo('blog-type'),
 

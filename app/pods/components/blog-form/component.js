@@ -77,8 +77,6 @@ export default imageCropper.extend({
             .set('image', croppedImage.toDataURL());
       }
       this.sendAction('action', blogParams);
-
     }
-
   }
 });

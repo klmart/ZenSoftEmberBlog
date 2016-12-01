@@ -4,11 +4,13 @@ export default Ember.Service.extend({
   postService: Ember.inject.service(),
 
   removePosts(blog){
-    blog.get('posts').then((posts) => {
-      posts.forEach((post) => {
-        this.get('postService').removePost(post);
-      })
-    })
+    blog.get('posts')
+        .then((posts) => {
+          posts.forEach((post) => {
+            this.get('postService')
+                .removePost(post);
+          })
+        })
   },
 
   removeBlog(blog){
@@ -19,7 +21,7 @@ export default Ember.Service.extend({
           .then((blogs) => {
             blogs.removeObject(blog);
           });
-        user.save();
+      user.save();
       blog.destroyRecord();
     });
   }

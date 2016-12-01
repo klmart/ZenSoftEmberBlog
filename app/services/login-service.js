@@ -6,9 +6,12 @@ export default Ember.Service.extend({
   currentUser:        Ember.Object.create(),
   currentPermissions: [],
 
-  isAuthenticated: Ember.computed('currentUser.id', function () {
-    return !!this.get('currentUser.id');
-  }),
+  isAuthenticated: Ember.computed(
+    'currentUser.id',
+    function () {
+      return !!this.get('currentUser.id');
+    }
+  ),
 
   findUser(email, pass){
     return this.get('store')

@@ -31,7 +31,6 @@ export default Ember.Service.extend({
         });
     blog.save();
     post.destroyRecord();
-
   }
 
 });

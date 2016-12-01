@@ -2,21 +2,21 @@
   {{#link-to 'comments.new' model class='btn btn-success btn-xs'}}Add new comment {{/link-to}}
 </div>
 
-  {{#each model.comments as |comment|}}
-      <div class="comment-list">
-          <div class="panel panel-default comment-item">
-              <div class="comment-author">
-                  <p>{{comment.user.email}}</p>
-              </div>
-              <div class="panel-body comment">
-                  <p>{{comment.body}}</p>
-              </div>
-              <div class="panel-footer text-right">
-                {{#if comment.checkUser}}
-                  {{#link-to 'comments.edit' comment.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
-                    <button class="btn btn-danger btn-xs" {{action 'deleteComment' comment}}>Delete</button>
-                {{/if}}
-              </div>
-          </div>
+{{#each model.comments as |comment|}}
+  <div class="comment-list">
+    <div class="panel panel-default comment-item">
+      <div class="comment-author">
+        <p>{{comment.user.email}}</p>
       </div>
-  {{/each}}
+      <div class="panel-body comment">
+        <p>{{comment.body}}</p>
+      </div>
+      <div class="panel-footer text-right">
+        {{#if comment.checkUser}}
+          {{#link-to 'comments.edit' comment.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteComment' comment}}>Delete</button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+{{/each}}

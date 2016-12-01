@@ -1,27 +1,27 @@
 <h1>Таблица блогов</h1>
 
 <table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Created</th>
-        <th>Blog Type</th>
-        <th>Posts</th>
-        <th>User</th>
-    </tr>
-    </thead>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Created</th>
+    <th>Blog Type</th>
+    <th>Posts</th>
+    <th>User</th>
+  </tr>
+  </thead>
 
-    <tbody>
-    {{#each blogs as |blog|}}
-        <tr>
-            <td>{{#link-to 'blogs.show' blog}}{{blog.name}}{{/link-to}}</td>
-            <td>{{blog.description}}</td>
-            <td>{{blog.createdMoment}}</td>
-            <td>{{blog.blogType.name}}</td>
-            <td>{{blog.postsCount}}</td>
-            <td>{{blog.user.email}}</td>
-        </tr>
-    {{/each}}
-    </tbody>
+  <tbody>
+  {{#each blogs as |blog|}}
+    <tr>
+      <td>{{#link-to 'blogs.show' blog}}{{blog.name}}{{/link-to}}</td>
+      <td>{{blog.description}}</td>
+      <td>{{blog.createdMoment}}</td>
+      <td>{{blog.blogType.name}}</td>
+      <td>{{blog.postsCount}}</td>
+      <td>{{blog.user.email}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
 </table>

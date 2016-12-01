@@ -6,12 +6,15 @@ export default Authenticated.extend({
 
   canEdit: 'canEditAllBlogs',
 
-  hasPermission: Ember.computed('loginService.currentPermissions', function () {
-    return this.get('loginService.currentPermissions')
-               .find((permission) => {
-                 return (permission.get('code') === this.get('canEdit'));
-               });
-  }),
+  hasPermission: Ember.computed(
+    'loginService.currentPermissions',
+    function () {
+      return this.get('loginService.currentPermissions')
+                 .find((permission) => {
+                   return (permission.get('code') === this.get('canEdit'));
+                 });
+    }
+  ),
 
   model(params) {
     const blogPromise = this.store.findRecord('blog', params.blog_id);

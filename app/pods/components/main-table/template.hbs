@@ -1,40 +1,40 @@
 <h1>Main table</h1>
 <div class="col-sm-12">
-    <label class="col-sm-2 control-label">Hide Fields</label>
-    <div class="col-sm-10">
-      {{#power-select-multiple
-        options=fields
-        selected=field
-        placeholder="Select Hide Fileds"
-        onchange=(action "chooseField" (mut ignore fields))
-      as |field|
-      }}
-        {{field.name}}
-      {{/power-select-multiple}}
-    </div>
+  <label class="col-sm-2 control-label">Hide Fields</label>
+  <div class="col-sm-10">
+    {{#power-select-multiple
+      options=fields
+      selected=field
+      placeholder="Select Hide Fileds"
+      onchange=(action "chooseField" (mut ignore fields))
+    as |field|
+    }}
+      {{field.name}}
+    {{/power-select-multiple}}
+  </div>
 </div>
 <br>
 <br>
 <table class="table table-bordered">
-    <thead>
+  <thead>
+  <tr>
+    {{#each fields as |field|}}
+      {{#if field.displayField}}
+        <th>{{field.name}}</th>
+      {{/if}}
+    {{/each}}
+  </tr>
+  </thead>
+
+  <tbody>
+  {{#each modelArray as |model|}}
     <tr>
       {{#each fields as |field|}}
         {{#if field.displayField}}
-            <th>{{field.name}}</th>
+          <th>{{get model field.name}}</th>
         {{/if}}
       {{/each}}
     </tr>
-    </thead>
-
-    <tbody>
-    {{#each modelArray as |model|}}
-        <tr>
-          {{#each fields as |field|}}
-            {{#if field.displayField}}
-                <th>{{get model field.name}}</th>
-            {{/if}}
-          {{/each}}
-        </tr>
-    {{/each}}
-    </tbody>
+  {{/each}}
+  </tbody>
 </table>

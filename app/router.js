@@ -3,7 +3,7 @@ import config from './config/environment';
 
 const Router = Ember.Router.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL:  config.rootURL
 });
 
 Router.map(function () {
@@ -38,12 +38,12 @@ Router.map(function () {
     this.route('edit', {path: '/:type_id/edit'});
   });
 
-  this.route('roles', function() {
+  this.route('roles', function () {
     this.route('new');
     this.route('edit', {path: '/:role_id/edit'});
   });
 
-  this.route('permissions', function() {
+  this.route('permissions', function () {
     this.route('new');
     this.route('edit', {path: '/:permission_id/edit'});
   });
