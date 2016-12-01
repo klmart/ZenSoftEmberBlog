@@ -64,6 +64,7 @@ export default imageCropper.extend({
     },
 
     //TODO: rename action.
+    //Done
     saveBlog(blogParams) {
 
       //TODO: why 'let'? move into if block

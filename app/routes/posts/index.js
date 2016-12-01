@@ -9,6 +9,7 @@ export default Ember.Route.extend({
 
   actions: {
     //TODO: same as Abai. Use save().then and delete comments
+    //Done
 
     deletePost(post){
       let confirmation = confirm('Are you sure?');

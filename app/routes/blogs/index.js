@@ -14,17 +14,6 @@ export default Authenticated.extend({
 
   deleteBlog(blog){
     this.blogService.removeBlog(blog);
-
-    // const promiseUser = blog.get('user');
-    // promiseUser.then((user) => {
-    //   user.get('blogs')
-    //       .removeObject(blog);
-    //
-    //   //TODO: use user.save().then. Also you need to remove blog's posts
-    //   //Service
-    //   user.save();
-    //   blog.destroyRecord();
-    // });
   },
 
   actions: {
@@ -34,6 +23,7 @@ export default Authenticated.extend({
         this.deleteBlog(blog);
       }
       //TODO: use user.save().then. Also you need to remove blog's posts
+      //Done
 
     },
 
