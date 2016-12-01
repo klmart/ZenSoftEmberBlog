@@ -1,7 +1,7 @@
 <div class="blogs-buttons-menu">
   {{#link-to 'blogs.new' class="btn btn-primary btn-xs" }} Add new {{/link-to}}
   {{#check-permissions permissionCode="canDeleteAllBlogs"}}
-    <button class="btn btn-danger btn-xs" {{action 'multipleDelete' filteredBlogs}}>Delete Blogs</button>
+      <button class="btn btn-danger btn-xs" {{action 'multipleDelete' filteredBlogs}}>Delete Blogs</button>
   {{/check-permissions}}
 </div>
 <div class="row">
