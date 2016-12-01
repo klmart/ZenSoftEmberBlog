@@ -135,13 +135,14 @@ html {
   }
 }
 
-.panel.isChecked {
+.thumbnail.isChecked {
   border-color: red;
   box-shadow: 0 1px 20px 0 #e00013, 0 0 0 1px #a72727;
 }
 
 .blog-checkBox {
   float: right;
+  margin: 10px !important;
 }
 
 .panel-footer {
@@ -154,10 +155,10 @@ html {
 }
 
 .blog-description {
-  height: 20px;
+  height: 60px;
   overflow: hidden;
-  margin-top: 10px;
-  margin-bottom: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .blog-name {
@@ -238,6 +239,8 @@ html {
 }
 
 .blog-image {
-  height: 250px;
-
+  height: 350px;
+  img {
+    max-width: 100%; /* This rule is very important, please do not ignore this! */
+  }
 }

@@ -6,33 +6,33 @@
 </div>
 <div class="row">
   {{#each filteredBlogs as |blog|}}
-    <div class="col-md-6">
-      <div class="panel panel-primary blog-item {{if blog.isChecked "isChecked"}}">
-        <div class="panel-heading">
-          {{#check-permissions permissionCode="canDeleteAllBlogs"}}
-            {{input class='blog-checkBox' type="checkbox" name="isEmberized" checked=blog.isChecked}}
-          {{/check-permissions}}
+      <div class="col-md-6">
+          <div class="panel panel-primary blog-item {{if blog.isChecked "isChecked"}}">
+              <div class="panel-heading">
+                {{#check-permissions permissionCode="canDeleteAllBlogs"}}
+                  {{input class='blog-checkBox' type="checkbox" name="isEmberized" checked=blog.isChecked}}
+                {{/check-permissions}}
 
-          {{#link-to 'posts.index' blog.id }} <h3 class="panel-title">{{blog.name}}</h3>{{/link-to}}
-        </div>
-        <div class="panel-body">
-          <p>Автор блога: {{blog.user.email}}</p>
-          <div class="blog-description">
-            <p>Description: {{blog.description}}</p>
+                {{#link-to 'posts.index' blog.id }} <h3 class="panel-title">{{blog.name}}</h3>{{/link-to}}
+              </div>
+              <div class="panel-body">
+                  <p>Автор блога: {{blog.user.email}}</p>
+                  <div class="blog-description">
+                      <p>Description: {{blog.description}}</p>
+                  </div>
+                  <div class="blog-image">
+                      <img src={{blog.image}}>
+                  </div>
+              </div>
+              <div class="panel-footer text-right">
+                {{#check-permissions permissionCode="canEditAllBlogs"}}
+                  {{#link-to 'blogs.edit' blog.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
+                {{/check-permissions}}
+                {{#check-permissions permissionCode="canDeleteAllBlogs"}}
+                    <button class="btn btn-danger btn-xs" {{action 'deleteBlog' blog}}>Delete</button>
+                {{/check-permissions}}
+              </div>
           </div>
-          <div class="blog-image">
-            <img src={{blog.image}}>
-          </div>
-        </div>
-        <div class="panel-footer text-right">
-          {{#check-permissions permissionCode="canEditAllBlogs"}}
-            {{#link-to 'blogs.edit' blog.id class='btn btn-primary btn-xs'}}Edit{{/link-to}}
-          {{/check-permissions}}
-          {{#check-permissions permissionCode="canDeleteAllBlogs"}}
-            <button class="btn btn-danger btn-xs" {{action 'deleteBlog' blog}}>Delete</button>
-          {{/check-permissions}}
-        </div>
       </div>
-    </div>
   {{/each}}
 </div>
