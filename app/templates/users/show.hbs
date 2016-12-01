@@ -1,48 +1,48 @@
 <div class="jumbo show-listing">
 
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>First Name:</strong> {{model.firstName}}
-        </div>
+  <div class="right detail-section">
+    <div class="detail owner">
+      <strong>First Name:</strong> {{model.firstName}}
     </div>
+  </div>
 
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>Last Name:</strong> {{model.lastName}}
-        </div>
+  <div class="right detail-section">
+    <div class="detail owner">
+      <strong>Last Name:</strong> {{model.lastName}}
     </div>
+  </div>
 
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>email:</strong> {{model.email}}
-        </div>
+  <div class="right detail-section">
+    <div class="detail owner">
+      <strong>email:</strong> {{model.email}}
     </div>
+  </div>
 
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>Role:</strong> {{model.role.name}}
-        </div>
+  <div class="right detail-section">
+    <div class="detail owner">
+      <strong>Role:</strong> {{model.role.name}}
     </div>
+  </div>
 
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>Permissions:</strong>{{#each loginService.permissions as |permission|}}
-          {{permission.name}},
-        {{/each}}
-        </div>
+  <div class="right detail-section">
+    <div class="detail owner">
+      <strong>Permissions:</strong>{{#each loginService.permissions as |permission|}}
+      {{permission.name}},
+    {{/each}}
     </div>
+  </div>
 
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>Registration Date:</strong> {{model.registrationMoment}}
-        </div>
+  <div class="right detail-section">
+    <div class="detail owner">
+      <strong>Registration Date:</strong> {{model.registrationMoment}}
     </div>
+  </div>
 
-    <div class="right detail-section">
-        <div class="detail owner">
-            <strong>Last login</strong> {{model.lastLoginMoment}}
-        </div>
+  <div class="right detail-section">
+    <div class="detail owner">
+      <strong>Last login</strong> {{model.lastLoginMoment}}
     </div>
+  </div>
 </div>
 
 {{#link-to 'users.edit' model class='btn btn-success btn-xs'}}Edit Profile{{/link-to}}
