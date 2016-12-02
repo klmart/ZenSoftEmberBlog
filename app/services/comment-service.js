@@ -1,25 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
+  userService: Ember.inject.service(),
 
   removeComment(comment){
-    const user = comment.get('user');
-    user.get('comments')
-        .then((comments) => {
-          comments.removeObject(comment);
+    this.get('userService')
+        .removeFromUser(comment)
+        .then(() => {
+          const post = comment.get('post');
+          post.get('comments')
+              .then((comments) => {
+                comments.removeObject(comment);
+              });
+          post.save()
+              .then(() => {
+                return comment.destroyRecord();
+              });
         });
-    user.then((user) => {
-      user.save();
-    });
-
-    const post = comment.get('post');
-    post.get('comments')
-        .then((comments) => {
-          comments.removeObject(comment);
-        });
-    post.save().then(()=>{
-      comment.destroyRecord();
-    });
   }
-
 });
