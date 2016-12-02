@@ -43,7 +43,7 @@ export default imageCropper.extend({
     //Done
 
     chooseBlogType(blogType){
-      const selected = this.set('blogType', blogType);
+      this.set('blogType', blogType);
     },
 
     uploadImg: function (event) {

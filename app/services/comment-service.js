@@ -6,7 +6,7 @@ export default Ember.Service.extend({
     const user = comment.get('user');
     user.get('comments')
         .then((comments) => {
-          comments.removeObject(comment)
+          comments.removeObject(comment);
         });
     user.then((user) => {
       user.save();
@@ -17,9 +17,9 @@ export default Ember.Service.extend({
         .then((comments) => {
           comments.removeObject(comment);
         });
-    post.save();
-    comment.destroyRecord();
-
+    post.save().then(()=>{
+      comment.destroyRecord();
+    });
   }
 
 });

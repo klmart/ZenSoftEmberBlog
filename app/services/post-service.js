@@ -10,7 +10,7 @@ export default Ember.Service.extend({
             this.get('commentService')
                 .removeComment(comment);
           });
-        })
+        });
   },
 
   removePost(post){

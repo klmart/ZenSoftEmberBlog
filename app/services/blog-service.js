@@ -9,8 +9,8 @@ export default Ember.Service.extend({
           posts.forEach((post) => {
             this.get('postService')
                 .removePost(post);
-          })
-        })
+          });
+        });
   },
 
   removeBlog(blog){
