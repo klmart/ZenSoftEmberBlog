@@ -7,6 +7,7 @@ export default DS.Model.extend({
   password:  DS.attr('string'),
   firstName: DS.attr('string'),
   lastName:  DS.attr('string'),
+  avatar:    DS.attr('string', {defaultValue: '/images/default-avatar.png'}),
 
   lastLoginDate:   DS.attr('date'),
   lastLoginMoment: Ember.computed(

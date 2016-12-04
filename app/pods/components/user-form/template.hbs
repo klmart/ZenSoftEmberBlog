@@ -16,6 +16,22 @@
   </div>
 
   <div class="form-group">
+    <label class="col-sm-2 control-label">Image</label>
+    <div class="col-sm-10">
+      <input type="file" onchange={{action "uploadImg"}}>
+
+      <div class="cropper">
+        <div class="cropper-preview">
+        </div>
+
+        <div class="cropper-container">
+          <img id="img" src="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
     <label class="col-sm-2 control-label">Last Name:</label>
     <div class="col-sm-10">
       {{#power-select

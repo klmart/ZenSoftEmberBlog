@@ -117,24 +117,63 @@ html {
   overflow-y: scroll;
 }
 
-.blog-item {
-  min-height: 150px;
-  a {
-    text-decoration: none;
-    color: white;
-  }
+//.blog-item {
+//  min-height: 150px;
+//  a {
+//    text-decoration: none;
+//    color: white;
+//  }
+//}
+
+//.panel-body {
+//  height: 400px;
+//  padding: 2px;
+//  padding-bottom: 2px;
+//  overflow: hidden;
+//  img {
+//    max-width: 100%;
+//  }
+//}
+
+.blogs-buttons-menu {
+  margin-bottom: 20px;
+  text-align: right;
 }
 
-.panel-body {
-  height: 400px;
-  padding: 2px;
-  padding-bottom: 2px;
-  overflow: hidden;
+.list {
+  background-color: red;
+}
+.list.thumbnail {
+  width: 720px;
+  display: inline-block;
+  background-color: cornsilk;
+}
+.list.blog-image {
+  display: block;
+  float: left;
+  background-color: blue;
+  height: 350px;
+  width: 350px;
   img {
-    max-width: 100%;
+    max-width: 100%; /* This rule is very important, please do not ignore this! */
   }
 }
-
+.list.caption {
+  display: block;
+  float: right;
+  width: 350px;
+  height: 350px;
+  background-color: yellow;
+}
+.list.blog-description {
+  height: 161px;
+  overflow: hidden;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.thumbnail {
+  background-color: cornsilk;
+}
 .thumbnail.isChecked {
   border-color: red;
   box-shadow: 0 1px 20px 0 #e00013, 0 0 0 1px #a72727;
@@ -149,11 +188,6 @@ html {
   background-color: white;
 }
 
-.blogs-buttons-menu {
-  margin-bottom: 20px;
-  text-align: right;
-}
-
 .blog-description {
   height: 60px;
   overflow: hidden;
@@ -161,53 +195,50 @@ html {
   margin-bottom: 15px;
 }
 
-.blog-name {
-  text-align: center;
-}
 
-.blog-description-show {
-  margin-top: 20px;
-  text-align: center;
-}
+//.blog-description-show {
+//  margin-top: 20px;
+//  text-align: center;
+//}
+//
+//.panel-title {
+//  text-align: center;
+//}
 
-.panel-title {
-  text-align: center;
-}
+//.panel-body.post {
+//  text-align: center;
+//  line-height: 3;
+//  overflow: hidden;
+//  height: 226px;
+//}
+//
+//.panel-footer {
+//  height: 45px;
+//}
 
-.panel-body.post {
-  text-align: center;
-  line-height: 3;
-  overflow: hidden;
-  height: 226px;
-}
+//.post-body {
+//  margin-top: 40px;
+//  text-align: center;
+//  line-height: 2;
+//  padding-bottom: 40px;
+//}
+//
+//.comment-item {
+//  text-align: center;
+//  margin-bottom: 50px;
+//}
 
-.panel-footer {
-  height: 45px;
-}
+//.comment-author {
+//  margin-top: 10px;
+//  text-align: center;
+//  background-color: aliceblue;
+//
+//}
 
-.post-body {
-  margin-top: 40px;
-  text-align: center;
-  line-height: 2;
-  padding-bottom: 40px;
-}
-
-.comment-item {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.comment-author {
-  margin-top: 10px;
-  text-align: center;
-  background-color: aliceblue;
-
-}
-
-.panel-body.comment {
-  height: 60px;
-  background-color: aliceblue;
-}
+//.panel-body.comment {
+//  height: 60px;
+//  background-color: aliceblue;
+//}
 
 .comment-list {
   margin: 0 auto;
@@ -240,6 +271,13 @@ html {
 
 .blog-image {
   height: 350px;
+  img {
+    max-width: 100%; /* This rule is very important, please do not ignore this! */
+  }
+}
+.user-avatar {
+  height: 125px;
+  width: 125px;
   img {
     max-width: 100%; /* This rule is very important, please do not ignore this! */
   }
