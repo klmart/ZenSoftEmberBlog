@@ -117,63 +117,44 @@ html {
   overflow-y: scroll;
 }
 
-//.blog-item {
-//  min-height: 150px;
-//  a {
-//    text-decoration: none;
-//    color: white;
-//  }
-//}
-
-//.panel-body {
-//  height: 400px;
-//  padding: 2px;
-//  padding-bottom: 2px;
-//  overflow: hidden;
-//  img {
-//    max-width: 100%;
-//  }
-//}
-
 .blogs-buttons-menu {
   margin-bottom: 20px;
   text-align: right;
 }
 
+.glyphicon {
+  cursor: pointer;
+}
+
 .list {
-  background-color: red;
-}
-.list.thumbnail {
-  width: 720px;
-  display: inline-block;
-  background-color: cornsilk;
-}
-.list.blog-image {
-  display: block;
-  float: left;
-  background-color: blue;
-  height: 350px;
-  width: 350px;
-  img {
-    max-width: 100%; /* This rule is very important, please do not ignore this! */
+  margin-left: 150px;
+  .thumbnail {
+    width: 720px;
+    display: inline-block;
+  }
+  .blog-image {
+    display: block;
+    float: left;
+    height: 350px;
+    width: 350px;
+    img {
+      max-width: 100%;
+    }
+  }
+  .caption {
+    display: block;
+    float: right;
+    width: 350px;
+    height: 350px;
+  }
+  .blog-description {
+    height: 161px;
+    overflow: hidden;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
-.list.caption {
-  display: block;
-  float: right;
-  width: 350px;
-  height: 350px;
-  background-color: yellow;
-}
-.list.blog-description {
-  height: 161px;
-  overflow: hidden;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-.thumbnail {
-  background-color: cornsilk;
-}
+
 .thumbnail.isChecked {
   border-color: red;
   box-shadow: 0 1px 20px 0 #e00013, 0 0 0 1px #a72727;
@@ -195,51 +176,6 @@ html {
   margin-bottom: 15px;
 }
 
-
-//.blog-description-show {
-//  margin-top: 20px;
-//  text-align: center;
-//}
-//
-//.panel-title {
-//  text-align: center;
-//}
-
-//.panel-body.post {
-//  text-align: center;
-//  line-height: 3;
-//  overflow: hidden;
-//  height: 226px;
-//}
-//
-//.panel-footer {
-//  height: 45px;
-//}
-
-//.post-body {
-//  margin-top: 40px;
-//  text-align: center;
-//  line-height: 2;
-//  padding-bottom: 40px;
-//}
-//
-//.comment-item {
-//  text-align: center;
-//  margin-bottom: 50px;
-//}
-
-//.comment-author {
-//  margin-top: 10px;
-//  text-align: center;
-//  background-color: aliceblue;
-//
-//}
-
-//.panel-body.comment {
-//  height: 60px;
-//  background-color: aliceblue;
-//}
-
 .comment-list {
   margin: 0 auto;
   width: 700px;
@@ -250,7 +186,7 @@ html {
   min-height: 300px;
   max-width: 500px;
   img {
-    max-width: 100%; /* This rule is very important, please do not ignore this! */
+    max-width: 100%;
   }
 }
 
@@ -272,13 +208,14 @@ html {
 .blog-image {
   height: 350px;
   img {
-    max-width: 100%; /* This rule is very important, please do not ignore this! */
+    max-width: 100%;
   }
 }
+
 .user-avatar {
-  height: 125px;
-  width: 125px;
+  height: 60px;
+  width: 60px;
   img {
-    max-width: 100%; /* This rule is very important, please do not ignore this! */
+    max-width: 100%;
   }
 }

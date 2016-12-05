@@ -9,10 +9,11 @@ export function initialize(application) {
   application.inject('route', 'postService', 'service:post-service');
   application.inject('route', 'blogService', 'service:blog-service');
   application.inject('route', 'userService', 'service:user-service');
-
+  application.inject('route', 'blogGridList', 'service:blog-grid-list');
+  application.inject('controller', 'blogGridList', 'service:blog-grid-list');
 }
 
 export default {
   name: 'login-init',
-        initialize
+  initialize
 };

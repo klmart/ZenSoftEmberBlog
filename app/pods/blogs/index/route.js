@@ -27,6 +27,11 @@ export default Authenticated.extend({
 
     },
 
+    setList() {
+      this.get('blogGridList')
+          .setIsList();
+    },
+
     multipleDelete(filteredBlogs){
       let confirmation = confirm('Are you sure?');
       if (confirmation) {

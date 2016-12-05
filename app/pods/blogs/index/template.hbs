@@ -3,13 +3,16 @@
   {{#check-permissions permissionCode="canDeleteAllBlogs"}}
     <button class="btn btn-danger btn-xs" {{action 'multipleDelete' filteredBlogs}}>Delete Blogs</button>
   {{/check-permissions}}
+  <span class="{{if blogGridList.isList "glyphicon glyphicon-th-large" "glyphicon glyphicon-th-list"}}" {{action
+    'setList'}} aria-hidden="true"></span>
 </div>
+
 <div class="row">
   {{#each filteredBlogs as |blog|}}
-    <div class="col-sm-6 col-md-4">
+    <div class="{{if blogGridList.isList "list col-md-8" "col-md-4" }}">
       <div class="thumbnail {{if blog.isChecked "isChecked"}}">
         {{#link-to 'posts.index' blog.id }}
-          <div class='blog-image'>
+          <div class="blog-image">
             <img src={{blog.image}}>
           </div>
         {{/link-to}}
@@ -35,5 +38,14 @@
         </div>
       </div>
     </div>
+    {{#if blogGridList.isList}}
+      <div class="col-md-1">
+        <div class='user-avatar'>
+          <img src={{blog.user.avatar}} class="img-circle" alt="Circular Image">
+        </div>
+        {{blog.user.firstName}}
+        {{blog.user.lastName}}
+      </div>
+    {{/if}}
   {{/each}}
 </div>
