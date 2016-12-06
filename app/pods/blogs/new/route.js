@@ -1,6 +1,7 @@
 import Authenticated from '../../authenticated/route';
 
 export default Authenticated.extend({
+  flashMessages: Ember.inject.service(),
 
   actions: {
 
@@ -16,6 +17,7 @@ export default Authenticated.extend({
                        this.transitionTo('blogs');
                      });
                });
+               // this.get('flashMessages').success('Blog Saved');
              });
     },
   }

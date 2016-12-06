@@ -11,6 +11,7 @@ export function initialize(application) {
   application.inject('route', 'userService', 'service:user-service');
   application.inject('route', 'blogGridList', 'service:blog-grid-list');
   application.inject('controller', 'blogGridList', 'service:blog-grid-list');
+  application.inject('helper', 'loginService', 'service:login-service');
 }
 
 export default {

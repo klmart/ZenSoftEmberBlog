@@ -1,6 +1,7 @@
 import Authenticated from '../../authenticated/route';
 
 export default Authenticated.extend({
+  flashMessages: Ember.inject.service(),
 
   model() {
     return this.store.findAll('blog');
@@ -14,6 +15,7 @@ export default Authenticated.extend({
 
   deleteBlog(blog){
     this.blogService.removeBlog(blog);
+    // this.get('flashMessages').danger('Blog Deleted');
   },
 
   actions: {
