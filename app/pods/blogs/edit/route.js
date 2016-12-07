@@ -35,7 +35,7 @@ export default Authenticated.extend({
 
     saveBlog(newBlog)
     {
-      newBlog.save()
+      newBlog.save({adapterOptions: {flashMessages: true}})
              .then(() => this.transitionTo('blogs'));
     },
 

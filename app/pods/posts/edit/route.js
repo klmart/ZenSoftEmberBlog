@@ -16,7 +16,7 @@ export default Authenticated.extend({
   actions: {
 
     savePost(newPost) {
-      newPost.save()
+      newPost.save({adapterOptions: {flashMessages: true}})
              .then(() => this.transitionTo('posts'));
     },
 
