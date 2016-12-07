@@ -3,15 +3,39 @@ import UserConst from '../consts/user';
 
 export default Ember.Service.extend({
 
-  removeFromUser(object){
-    return object.get('user')
-                 .then((user) => {
-                   const titles = UserConst[object.get('constructor.modelName')];
-                   user.get(titles)
-                       .then((titles) => {
-                         titles.removeObject(object);
-                         return user.save();
-                       });
-                 });
-  }
-});
+
+  userAddObject(object) {
+    return object.get('user').then((user) => {
+      const modelName = UserConst[object.get('constructor.modelName')];
+      user.get(modelName).then((model) => {
+        model.pushObject(object);
+        return model.save();
+      });
+    });
+  },
+
+//     const userPromise = savedBlog.get('user');
+//     user.get('blogs')
+//
+//       .pushObject(savedBlog);
+//     user.save()
+//
+//       .then(() => {
+//       });
+//   })
+// },
+
+removeFromUser(object)
+{
+  return object.get('user')
+    .then((user) => {
+      const modelName = UserConst[object.get('constructor.modelName')];
+      user.get(modelName)
+        .then((model) => {
+          model.removeObject(object);
+          return user.save();
+        });
+    });
+}
+})
+;

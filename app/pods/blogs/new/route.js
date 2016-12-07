@@ -8,16 +8,9 @@ export default Authenticated.extend({
     saveBlog(newBlog) {
       newBlog.save()
              .then((savedBlog) => {
-               const userPromise = savedBlog.get('user');
-               userPromise.then((user) => {
-                 user.get('blogs')
-                     .pushObject(savedBlog);
-                 user.save()
-                     .then(() => {
-                       this.transitionTo('blogs');
-                     });
+               this.userService.userAddObject(savedBlog).then(() => {
+                 this.transitionTo('blogs');
                });
-               // this.get('flashMessages').success('Blog Saved');
              });
     },
   }

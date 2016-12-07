@@ -16,17 +16,12 @@ export default Ember.Route.extend({
                   post.get('comments')
                       .pushObject(savedComment);
 
-                  const user = savedComment.get('user');
-                  user.get('comments')
-                      .pushObject(savedComment);
-                  user.then((user) => {
-                    user.save();
-                  });
-
-                  post.save()
-                      .then(() => {
-                        this.transitionTo('comments');
-                      });
+                    this.userService.userAddObject(savedComment).then(()=> {
+                      post.save()
+                        .then(() => {
+                          this.transitionTo('comments');
+                        });
+                    });
                 });
     },
 

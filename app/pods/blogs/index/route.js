@@ -15,7 +15,6 @@ export default Authenticated.extend({
 
   deleteBlog(blog){
     this.blogService.removeBlog(blog);
-    // this.get('flashMessages').danger('Blog Deleted');
   },
 
   actions: {
