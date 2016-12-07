@@ -8,9 +8,10 @@ export default Authenticated.extend({
     saveBlog(newBlog) {
       newBlog.save()
              .then((savedBlog) => {
-               this.userService.userAddObject(savedBlog).then(() => {
-                 this.transitionTo('blogs');
-               });
+               this.userService.userAddObject(savedBlog)
+                   .then(() => {
+                     this.transitionTo('blogs');
+                   });
              });
     },
   }

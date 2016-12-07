@@ -25,12 +25,13 @@ export default Authenticated.extend({
                blog.get('posts')
                    .pushObject(savedPost);
 
-               this.userService.userAddObject(savedPost).then(()=> {
-                 blog.save()
+               this.userService.userAddObject(savedPost)
                    .then(() => {
-                     this.transitionTo('posts');
+                     blog.save()
+                         .then(() => {
+                           this.transitionTo('posts');
+                         });
                    });
-               });
 
              });
     },
