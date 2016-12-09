@@ -22,17 +22,16 @@ export default Authenticated.extend({
       newPost.save()
              .then((savedPost) => {
                const blog = savedPost.get('blog');
-               blog.get('posts')
-                   .pushObject(savedPost);
-
-               this.userService.userAddObject(savedPost)
-                   .then(() => {
-                     blog.save()
-                         .then(() => {
-                           this.transitionTo('posts');
-                         });
-                   });
-
+               blog.get('posts').then((posts) => {
+                 posts.pushObject(savedPost);
+                 this.userService.userAddObject(savedPost)
+                     .then(() => {
+                       blog.save()
+                           .then(() => {
+                             this.transitionTo('posts');
+                           });
+                     });
+               })
              });
     },
 

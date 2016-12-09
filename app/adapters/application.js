@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import LSAdapter from 'ember-localstorage-adapter';
 
 export default LSAdapter.extend({
@@ -13,31 +14,29 @@ export default LSAdapter.extend({
     namespaceRecords.records[id] = serializer.serialize(snapshot, {includeId: true});
     this.persistData(type, namespaceRecords);
 
-    if(Ember.get(snapshot, 'adapterOptions.flashMessages')) {
-
+    if (Ember.get(snapshot, 'adapterOptions.flashMessages')) {
       let modelName = snapshot.modelName;
       this.get('flashMessages')
-        .danger((modelName.charAt(0)
-            .toUpperCase() + modelName.slice(1)) + ' Updated');
+          .danger((modelName.charAt(0)
+                            .toUpperCase() + modelName.slice(1)) + ' Updated');
     }
     return Ember.RSVP.resolve();
   },
 
-
   createRecord: function (store, type, snapshot) {
-      let namespaceRecords = this._namespaceForType(type);
-      let serializer       = store.serializerFor(type.modelName);
-      let recordHash       = serializer.serialize(snapshot, {includeId: true});
+    let namespaceRecords = this._namespaceForType(type);
+    let serializer       = store.serializerFor(type.modelName);
+    let recordHash       = serializer.serialize(snapshot, {includeId: true});
 
-      namespaceRecords.records[recordHash.id] = recordHash;
+    namespaceRecords.records[recordHash.id] = recordHash;
 
-      this.persistData(type, namespaceRecords);
+    this.persistData(type, namespaceRecords);
 
-      let modelName = snapshot.modelName;
-      this.get('flashMessages')
+    let modelName = snapshot.modelName;
+    this.get('flashMessages')
         .danger((modelName.charAt(0)
-            .toUpperCase() + modelName.slice(1)) + ' Created');
-      return Ember.RSVP.resolve();
+                          .toUpperCase() + modelName.slice(1)) + ' Created');
+    return Ember.RSVP.resolve();
 
   },
 
@@ -50,9 +49,11 @@ export default LSAdapter.extend({
     this.persistData(type, namespaceRecords);
 
     let modelName = snapshot.modelName;
-    this.get('flashMessages')
-        .danger((modelName.charAt(0)
-                          .toUpperCase() + modelName.slice(1)) + ' Deleted');
+    if (Ember.get(snapshot, 'adapterOptions.flashMessages')) {
+      this.get('flashMessages')
+          .danger((modelName.charAt(0)
+                            .toUpperCase() + modelName.slice(1)) + ' Deleted');
+    }
 
     return Ember.RSVP.resolve();
   },

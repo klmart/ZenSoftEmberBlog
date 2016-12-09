@@ -14,7 +14,7 @@ export default Authenticated.extend({
   actions: {
 
     saveUser(newUser) {
-      newUser.save()
+      newUser.save({adapterOptions: {flashMessages: true}})
              .then(() => this.transitionTo('users.show', newUser.id));
     },
 

@@ -1,4 +1,6 @@
 import Authenticated from '../../authenticated/route';
+import Ember from 'ember';
+
 
 export default Authenticated.extend({
   flashMessages: Ember.inject.service(),

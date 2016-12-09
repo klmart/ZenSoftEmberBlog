@@ -7,7 +7,7 @@ export default Authenticated.extend({
 
   actions: {
     saveBlogType(newBlogType){
-      newBlogType.save()
+      newBlogType.save({adapterOptions: {flashMessages: true}})
                  .then(() => {
                    this.transitionTo('blog-types');
                  });
