@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('list-filter', 'Integration | Component | list filter', {
+moduleForComponent('blog-filter', 'Integration | Component | list filter', {
   integration: true
 });
 

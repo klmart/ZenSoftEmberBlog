@@ -2,12 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   store:         Ember.inject.service(),
-  filteredBlogs: undefined,
-  blogs:         undefined,
+  filterService: Ember.inject.service(),
+  filteredBlogs: Ember.computed('filterService.model',
+    function () {
+      return this.get('filterService.model');
+    }),
 
   init(){
     this._super(...arguments);
-    this.set('filteredBlogs', this.get('model'));
+    // this.set('filteredBlogs', this.get('model'));
+    this.get('filterService')
+        .setModel(this.get('model'));
   },
 
   filterObserver: Ember.observer('searchParam', function () {
@@ -25,10 +30,11 @@ export default Ember.Component.extend({
                                                                                        .includes(filterParam);
                            return findByName || findByDescription;
                          });
-
-      this.set('filteredBlogs', filBlogs);
+      this.get('filterService')
+          .setModel(filBlogs);
     } else {
-      this.set('filteredBlogs', this.get('model'));
+      this.get('filterService')
+          .setModel(this.get('model'));
     }
   }),
 });

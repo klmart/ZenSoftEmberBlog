@@ -13,6 +13,7 @@ export function initialize(application) {
   application.inject('component', 'blogGridList', 'service:blog-grid-list');
   application.inject('controller', 'blogGridList', 'service:blog-grid-list');
   application.inject('helper', 'loginService', 'service:login-service');
+  application.inject('component', 'filterService', 'service:filter-service');
 }
 
 export default {

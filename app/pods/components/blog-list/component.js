@@ -4,22 +4,26 @@ export default Ember.Component.extend({
   store:         Ember.inject.service(),
   blogGridList:  Ember.inject.service(),
   blogService:   Ember.inject.service(),
-  filteredBlogs: undefined,
-  init(){
-    this._super(...arguments);
-    this.set('filteredBlogs', this.get('model'));
-  },
+  filterService: Ember.inject.service(),
+  filteredBlogs: Ember.computed('filterService.model',
+    function () {
+      return this.get('filterService.model');
+    }),
 
-  deleteBlog(blog){
+  deleteBlog(blog)
+  {
     this.get('blogService')
         .removeBlog(blog);
   },
+
   actions: {
-    setList() {
+    setList()
+    {
       this.get('blogGridList')
           .setIsList();
     },
-    deleteBlog(blog){
+    deleteBlog(blog)
+    {
       console.log(2);
       let confirmation = confirm('Are you sure?');
       if (confirmation) {
@@ -29,7 +33,8 @@ export default Ember.Component.extend({
       //Done
     },
 
-    multipleDelete(filteredBlogs){
+    multipleDelete(filteredBlogs)
+    {
       let confirmation = confirm('Are you sure?');
       if (confirmation) {
         const blogs = filteredBlogs.filter((blog) => {
