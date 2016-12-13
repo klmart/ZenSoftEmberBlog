@@ -14,7 +14,7 @@ export default Ember.Service.extend({
               });
           post.save()
               .then(() => {
-                return comment.destroyRecord();
+                return comment.destroyRecord({ adapterOptions: { flashMessage: true } });
               });
         });
   }

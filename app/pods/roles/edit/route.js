@@ -7,7 +7,7 @@ export default Authenticated.extend({
 
   actions: {
     saveRole(saveBlog){
-      saveBlog.save({adapterOptions: {flashMessages: true}})
+      saveBlog.save({adapterOptions: {flashMessage: true}})
               .then(() => {
                 this.transitionTo('roles');
               });

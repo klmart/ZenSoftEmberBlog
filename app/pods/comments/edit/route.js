@@ -15,7 +15,7 @@ export default Authenticated.extend({
   actions: {
 
     saveComment(newComment) {
-      newComment.save({adapterOptions: {flashMessages: true}})
+      newComment.save({adapterOptions: {flashMessage: true}})
                 .then(() => this.transitionTo('comments'));
     },
 

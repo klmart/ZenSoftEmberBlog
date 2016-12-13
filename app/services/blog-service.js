@@ -20,8 +20,9 @@ export default Ember.Service.extend({
           this.get('userService')
               .removeFromUser(blog)
               .then(() => {
-                blog.destroyRecord();
+                blog.destroyRecord({adapterOptions: {flashMessage: true}});
               });
         });
   }
+
 });

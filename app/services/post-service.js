@@ -27,7 +27,7 @@ export default Ember.Service.extend({
                     });
                 blog.save()
                     .then(() => {
-                      return post.destroyRecord();
+                      return post.destroyRecord({ adapterOptions: { flashMessage: true } });
                     });
               });
         });

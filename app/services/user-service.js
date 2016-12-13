@@ -8,10 +8,8 @@ export default Ember.Service.extend({
                  .then((user) => {
                    const modelName = UserConst[object.get('constructor.modelName')];
                    user.get(modelName)
-                       .then((model) => {
-                         model.pushObject(object);
-                         return model.save();
-                       });
+                       .addObject(object);
+                   return user.save;
                  });
   },
 

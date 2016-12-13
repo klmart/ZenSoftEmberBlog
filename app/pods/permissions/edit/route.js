@@ -7,7 +7,7 @@ export default Authenticated.extend({
 
   actions: {
     savePermission(permission){
-      permission.save({adapterOptions: {flashMessages: true}})
+      permission.save({adapterOptions: {flashMessage: true}})
                 .then(() => {
                   this.transitionTo('permissions');
                 });
