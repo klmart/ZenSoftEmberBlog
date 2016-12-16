@@ -19,6 +19,7 @@
           {{#link-to 'posts.index' blog.id }}<h3>{{blog.name}}</h3>{{/link-to}}
           <div class="blog-description">
             <p>{{blog.description}}</p>
+            <p>{{blog.blogType.name}}</p>
           </div>
           <div class="panel-footer">
             <p>Автор: {{blog.user.email}}</p>

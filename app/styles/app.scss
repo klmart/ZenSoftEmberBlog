@@ -219,3 +219,30 @@ html {
     max-width: 100%;
   }
 }
+
+.btn.btn-search.btn-default {
+  height: 34px;
+}
+
+.search-select {
+  display: block;
+  float: left;
+  width: 150px;
+  height: 34px;
+  #ember-basic-dropdown-trigger-ember752 {
+    border-radius: 4px 0 0 4px;
+    height: 34px;
+    width: 150px !important;
+    display: block !important;
+    float: left !important;
+  }
+  .ember-power-select-placeholder {
+    text-align: center;
+    height: 34px;
+  }
+}
+
+.search-bar {
+  width: 800px;
+  text-align: center;
+}

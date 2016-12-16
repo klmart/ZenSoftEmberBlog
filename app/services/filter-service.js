@@ -2,9 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Service.extend({
   model: undefined,
+  // unfilteredModel: undefined,
 
   setModel(model){
-    console.log('ssetBlogs');
     this.set('model', model);
-  }
+  },
+  // setUnfilteredModel(model){
+  //   this.set('unfilteredModel', model);
+  // }
 });

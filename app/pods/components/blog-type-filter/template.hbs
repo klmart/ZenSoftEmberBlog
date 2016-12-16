@@ -1,0 +1,12 @@
+<div class="search-select">
+  {{#power-select
+    selected=selectedValue
+    placeholder="Please, select one destination"
+    allowClear=true
+    options=blogTypes
+    onchange=(action 'chooseBlogType' (mut ignore blogType))
+  as |blogType|
+  }}
+    {{blogType.name}}
+  {{/power-select}}
+</div>
