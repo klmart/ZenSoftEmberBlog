@@ -1,0 +1,12 @@
+<div class="search-select">
+  {{#power-select
+    selected=selectedValue
+    placeholder="Please, select one destination"
+    allowClear=true
+    options=users
+    onchange=(action 'chooseUserBlog' (mut ignore user))
+  as |user|
+  }}
+    {{user.email}}
+  {{/power-select}}
+</div>

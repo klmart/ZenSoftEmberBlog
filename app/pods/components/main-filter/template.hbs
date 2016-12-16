@@ -1,8 +1,8 @@
 <div class="row">
   {{blog-type-filter register='registerFilter'}}
+  {{blog-user-filter register='registerFilter'}}
   <div class="search-bar">
     <div class="input-group">
-      <!--<input class="form-control" placeholder="Search for...">-->
       {{blog-name-description-filter register='registerFilter'}}
       <span class="input-group-btn">
             <button type="button" class="btn btn-search btn-default" {{action 'searchModel'}}>
