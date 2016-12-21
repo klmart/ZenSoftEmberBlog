@@ -16,7 +16,7 @@ export default imageCropper.extend({
 
     const blogFromRoute = this.get('item') || this.get('store')
                                                   .createRecord('blog', {
-                                                   user: this.get('loginService.currentUser')
+                                                    user: this.get('loginService.currentUser')
                                                   });
     this.set('blog', blogFromRoute);
   },

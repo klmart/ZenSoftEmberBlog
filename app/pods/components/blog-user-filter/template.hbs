@@ -1,9 +1,9 @@
 <div class="search-select">
   {{#power-select
-    selected=selectedValue
+    selected=userSelectedValue
     placeholder="Please, select one destination"
-    allowClear=true
     options=users
+    allowClear=true
     onchange=(action 'chooseUserBlog' (mut ignore user))
   as |user|
   }}

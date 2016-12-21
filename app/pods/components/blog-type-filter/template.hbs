@@ -1,10 +1,10 @@
-<div class="search-select">
+<div class="search-select blog-type">
   {{#power-select
-    selected=selectedValue
+    selected=typeSelectedValue
     placeholder="Please, select one destination"
     allowClear=true
     options=blogTypes
-    onchange=(action 'chooseBlogType' (mut ignore blogType))
+    onchange=(action 'chooseBlogType')
   as |blogType|
   }}
     {{blogType.name}}

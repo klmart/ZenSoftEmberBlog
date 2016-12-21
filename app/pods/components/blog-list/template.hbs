@@ -30,11 +30,13 @@
                 {{#link-to 'blogs.edit' blog.id class='btn btn-primary'}}Edit{{/link-to}}
               {{/check-permissions}}
               {{#check-permissions permissionCode="canDeleteAllBlogs"}}
-                <button class="btn btn-danger" {{action 'deleteBlog' blog}}>Delete</button>
+                <!--<button class="btn btn-danger" {{!action 'deleteBlog' blog}}>Delete</button>-->
+                {{#link-to 'blogs.edit' blog.id class="glyphicon glyphicon-edit"}}{{/link-to}}
+                <span class="glyphicon glyphicon-remove" {{action 'deleteBlog' blog}}></span>
+
               {{/check-permissions}}
             {{else}}
               {{#if (userIsBlogAuthor blog.id)}}
-
                 {{#link-to 'blogs.edit' blog.id class="glyphicon glyphicon-edit"}}{{/link-to}}
                 <span class="glyphicon glyphicon-remove" {{action 'deleteBlog' blog}}></span>
               {{/if}}

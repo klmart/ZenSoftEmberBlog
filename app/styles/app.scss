@@ -220,29 +220,49 @@ html {
   }
 }
 
-.btn.btn-search.btn-default {
-  height: 34px;
-}
-
-.search-select {
-  display: block;
-  float: left;
-  width: 150px;
-  height: 34px;
-  #ember-basic-dropdown-trigger-ember752 {
-    border-radius: 4px 0 0 4px;
-    height: 34px;
-    width: 150px !important;
-    display: block !important;
-    float: left !important;
-  }
-  .ember-power-select-placeholder {
-    text-align: center;
-    height: 34px;
-  }
-}
-
 .search-bar {
-  width: 800px;
-  text-align: center;
+  padding-bottom: 15px;
+  .btn.btn-search.btn-default {
+    height: 34px;
+  }
+
+  .search-select {
+    .ember-power-select-placeholder {
+      padding-top: 3px;
+    }
+    display: block;
+    float: left;
+    width: 150px;
+    .ember-power-select-trigger.ember-view.ember-basic-dropdown-trigger {
+      border-radius: 0px;
+      height: 34px;
+    }
+    .ember-power-select-placeholder {
+      text-align: center;
+      height: 34px;
+    }
+  }
+
+  .search-select.blog-type {
+    display: block;
+    float: left;
+    width: 150px;
+    .ember-power-select-trigger.ember-view.ember-basic-dropdown-trigger {
+      border-radius: 4px 0 0 4px;
+      height: 34px;
+    }
+    .ember-power-select-placeholder {
+      text-align: center;
+      height: 34px;
+    }
+  }
+
+  .blog.search-by-date {
+    .form-control.ember-view.ember-text-field {
+      border-radius: 0px;
+    }
+    width: 100px;
+    display: block;
+    float: left;
+  }
 }

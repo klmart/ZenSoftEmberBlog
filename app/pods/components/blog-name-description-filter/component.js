@@ -2,20 +2,13 @@ import Ember from 'ember';
 import BaseFilter from '../base-filter/component';
 
 export default BaseFilter.extend({
-  store:         Ember.inject.service(),
-  filterService: Ember.inject.service(),
-
-  filteredBlogs: Ember.computed('filterService.model',
-    function () {
-      return this.get('filterService.model');
-    }),
 
   run() {
     let searchParam = this.get('searchParam');
     if (searchParam) {
       let filterParam   = searchParam
         .toUpperCase();
-      let filteredBlogs = this.get('filteredBlogs')
+      let filteredBlogs = this.get('filteredModel')
                               .filter((blog) => {
                                 const blogName          = blog.get('name')
                                                               .toUpperCase();
