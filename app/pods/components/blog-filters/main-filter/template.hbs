@@ -1,0 +1,14 @@
+<div class="search-bar">
+  {{blog-filters/blog-type-filter register='registerFilter'}}
+  {{blog-filters/blog-user-filter register='registerFilter'}}
+  {{blog-filters/blog-date-filter register='registerFilter'}}
+  <div class="input-group">
+    {{blog-filters/blog-name-description-filter register='registerFilter'}}
+    <span class="input-group-btn">
+            <button type="button" class="btn btn-search btn-default" {{action 'searchModel'}}>
+              GO!
+            </button>
+      </span>
+  </div>
+</div>
+{{blogs/blog-list}}

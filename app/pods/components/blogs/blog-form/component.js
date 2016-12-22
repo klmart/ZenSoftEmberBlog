@@ -72,6 +72,7 @@ export default imageCropper.extend({
       if (this.get('hasImage')) {
         const container    = this.$(this.get('cropperContainer'));
         const croppedImage = container.cropper('getCroppedCanvas');
+        console.log(croppedImage);
         this.get('blog')
             .set('image', croppedImage.toDataURL());
       }
