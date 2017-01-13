@@ -1,0 +1,6 @@
+{{!form-constructor/input-form}}
+<!--{{!form-constructor/textarea-form}}-->
+
+{{#each fields as |field|}}
+  {{component 'form-constructor/get-field-path' field=field }}
+{{/each}}
