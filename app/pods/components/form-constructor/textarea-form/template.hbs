@@ -1,7 +1,6 @@
 <div class="form-group">
-  <label class="col-sm-2 control-label">Description</label>
+  <label class="col-sm-2 control-label">{{field.label}}</label>
   <div class="col-sm-10">
-    {{!input type="text" class="form-control" placeholder=""}}
-    {{textarea cols="80" rows="6"  class="form-control" placeholder="The Description of the Blog"}}
+    {{textarea cols="80" rows="6"  class="form-control" value=field.value placeholder=field.placeholder}}
   </div>
 </div>

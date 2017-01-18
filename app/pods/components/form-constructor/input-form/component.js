@@ -1,10 +1,16 @@
-import Ember from 'ember';
+import BaseForm from '../base-form/component';
 
-export default Ember.Component.extend({
+export default BaseForm.extend({
 
-  init(){
-    this._super(...arguments);
-    console.log(this.get('field'));
+  // init(){
+  //   this._super(...arguments);
+  //   this.sendAction('register', this)
+  // },
+
+  getValue(){
+    let obj = {};
+    obj[this.get('field.value')] = this.get('name');
+    return obj;
   }
 
 });

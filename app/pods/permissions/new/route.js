@@ -7,6 +7,7 @@ export default Authenticated.extend({
 
   actions: {
     savePermission(newPermission){
+
       newPermission.save()
                    .then(() => {
                      this.transitionTo('permissions');
