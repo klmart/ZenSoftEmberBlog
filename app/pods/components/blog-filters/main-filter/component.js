@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  filterService:         Ember.inject.service(),
-  registeredFilters:     [],
+  filterService:     Ember.inject.service(),
+  registeredFilters: [],
 
   init(){
     this._super(...arguments);
@@ -12,7 +12,8 @@ export default Ember.Component.extend({
 
   actions: {
     searchModel(){
-      this.get('filterService').setModel(this.get('model'));
+      this.get('filterService')
+          .setModel(this.get('model'));
       this.get('registeredFilters')
           .forEach((filter) => {
             filter.run();

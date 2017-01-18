@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     registerForm(form){
       console.log('main-form');
       this.get('registeredForms')
-        .pushObject(form);
+          .pushObject(form);
     },
   }
 
