@@ -1,7 +1,7 @@
 <div class="form-horizontal">
 
   {{#each fields as |field|}}
-    {{component 'form-constructor/get-field-path' field=field }}
+    {{component 'form-constructor/get-field-path' field=field register='registerForm' }}
   {{/each}}
 
   <div class="form-group">

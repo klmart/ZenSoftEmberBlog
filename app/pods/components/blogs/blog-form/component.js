@@ -77,6 +77,16 @@ export default imageCropper.extend({
             .set('image', croppedImage.toDataURL());
       }
       this.sendAction('action', this.get('blog'));
+    },
+
+    createBlog(blogParams){
+      console.log('createblog');
+      this.get('blog').name = blogParams.name;
+      this.get('blog').description = blogParams.description;
+      this.get('blog').blogType = blogParams.blogType;
+      this.sendAction('action', this.get('blog'));
     }
+
   }
+
 });

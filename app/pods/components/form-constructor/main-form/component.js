@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import FormTypes from '../../../../consts/formTypes';
 
-import GetPath from '../get-field-path/component';
-
-export default GetPath.extend({
-  item: {},
+export default Ember.Component.extend({
+  item:   {},
+  fields: undefined,
+  registeredForms: [],
 
   init(){
     this._super(...arguments);
@@ -12,10 +12,15 @@ export default GetPath.extend({
   },
 
   actions: {
+    registerForm(form){
+      this.get('registeredForms')
+          .pushObject(form);
+    },
+
     save(){
       this.get('registeredForms')
           .forEach((form) => {
-            let formHash = form.getValue();
+            let formHash = form.getKeyValue();
             for (let key in formHash) {
               this.get('item')[key] = formHash[key];
             }

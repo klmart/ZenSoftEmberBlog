@@ -25,7 +25,7 @@
             <p>Автор: {{blog.user.email}}</p>
           </div>
           <div class="panel-footer">
-            {{#if (hasPermission 'canDeleteAllBlogs' 'canEditAllBLogs')}}
+            {{#if (has-permission 'canDeleteAllBlogs' 'canEditAllBLogs')}}
               {{#check-permissions permissionCode="canEditAllBlogs"}}
                 {{#link-to 'blogs.edit' blog.id class='btn btn-primary'}}Edit{{/link-to}}
               {{/check-permissions}}
@@ -36,7 +36,7 @@
 
               {{/check-permissions}}
             {{else}}
-              {{#if (userIsBlogAuthor blog.id)}}
+              {{#if (user-is-blog-author blog.id)}}
                 {{#link-to 'blogs.edit' blog.id class="glyphicon glyphicon-edit"}}{{/link-to}}
                 <span class="glyphicon glyphicon-remove" {{action 'deleteBlog' blog}}></span>
               {{/if}}

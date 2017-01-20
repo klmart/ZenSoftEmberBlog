@@ -2,9 +2,9 @@ import BaseForm from '../base-form/component';
 
 export default BaseForm.extend({
 
-  getValue(){
+  getKeyValue(){
     let obj                      = {};
-    obj[this.get('field.value')] = this.get('name');
+    obj[this.get('field.key')] = this.get('title');
     return obj;
   }
 

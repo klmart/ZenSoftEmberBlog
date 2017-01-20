@@ -3,17 +3,25 @@ const formTypes = {
       title: 'Create Blog',
       fields: [
         {
-          label: 'Name',
+          label: 'Name*',
           type: 'input-form',
-          value: 'item.name',
-          placeholder: 'The name of the Blog',
+          key: 'name',
+          placeholder: 'The name of the Blog'
         },
         {
-          label: 'Description',
+          label: 'Description*',
           type: 'textarea-form',
-          value: 'item.description',
-          placeholder: 'The description of the Blog',
+          key: 'description',
+          placeholder: 'The description of the Blog'
         },
+        {
+          label: 'Blog Type*',
+          type: 'select-form',
+          key: 'blogType',
+          placeholder: 'Please, select category',
+          model: 'blog-type',
+          modelTitle: 'name'
+        }
       ]
     },
   permissionNew: {
@@ -22,13 +30,13 @@ const formTypes = {
         {
           label: 'Permission*',
           type: 'input-form',
-          value: 'name',
+          key: 'name',
           placeholder: 'Permission name'
         },
         {
           label: 'Permission Code*',
           type: 'input-form',
-          value: 'code',
+          key: 'code',
           placeholder: 'Permission code'
         }
       ]
