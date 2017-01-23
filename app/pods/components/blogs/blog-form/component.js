@@ -80,7 +80,6 @@ export default imageCropper.extend({
     },
 
     createBlog(blogParams){
-      console.log('createblog');
       this.get('blog').name = blogParams.name;
       this.get('blog').description = blogParams.description;
       this.get('blog').blogType = blogParams.blogType;

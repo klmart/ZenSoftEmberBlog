@@ -1,12 +1,13 @@
 <div class="form-horizontal">
 
-  {{#each fields as |field|}}
-    {{component 'form-constructor/get-field-path' field=field register='registerForm' }}
+  {{#each formParams.fields as |field|}}
+    {{component 'form-constructor/get-field-path' field=field register='registerForm'}}
   {{/each}}
+
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" {{action 'save' item}}>Save</button>
+      <button type="submit" class="btn btn-default" {{action 'save' item}}>{{formParams.buttonLabel}}</button>
     </div>
   </div>
 

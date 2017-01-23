@@ -1,6 +1,7 @@
 const formTypes = {
     blogNew: {
       title: 'Create Blog',
+      buttonLabel: 'Save blog',
       fields: [
         {
           label: 'Name*',
@@ -20,13 +21,15 @@ const formTypes = {
           key: 'blogType',
           placeholder: 'Please, select category',
           model: 'blog-type',
-          modelTitle: 'name'
+          modelTitle: 'name',
         }
       ]
     },
+
   permissionNew: {
-      title: 'Create Permission',
-      fields: [
+    title: 'Create Permission',
+    buttonLabel: 'Save Permission',
+    fields: [
         {
           label: 'Permission*',
           type: 'input-form',

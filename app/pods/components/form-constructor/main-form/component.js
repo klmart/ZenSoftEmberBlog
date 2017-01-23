@@ -3,12 +3,13 @@ import FormTypes from '../../../../consts/formTypes';
 
 export default Ember.Component.extend({
   item:   {},
-  fields: undefined,
   registeredForms: [],
+  formParams:undefined,
 
   init(){
     this._super(...arguments);
-    this.set('fields', FormTypes[`${this.get('formType')}`]['fields']);
+    this.set('formParams', FormTypes[`${this.get('formType')}`]);
+    console.log(this.get('formParams'));
   },
 
   actions: {

@@ -1,4 +1,5 @@
-import BaseForm from '../base-form/component';
+import BaseForm from '../base-form/component';import Ember from 'ember';
+
 
 export default BaseForm.extend({
 
@@ -6,6 +7,15 @@ export default BaseForm.extend({
     let obj                      = {};
     obj[this.get('field.key')] = this.get('title');
     return obj;
+  },
+
+  actions: {
+
+    check() {
+      console.log(1);
+      console.log(this.get('title'));
+    }
+
   }
 
 });
