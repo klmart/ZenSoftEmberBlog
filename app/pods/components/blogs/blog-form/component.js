@@ -80,9 +80,9 @@ export default imageCropper.extend({
     },
 
     createBlog(blogParams){
-      this.get('blog').name = blogParams.name;
+      this.get('blog').name        = blogParams.name;
       this.get('blog').description = blogParams.description;
-      this.get('blog').blogType = blogParams.blogType;
+      Ember.set(this.get('blog'), 'blogType', blogParams.blogType);
       this.sendAction('action', this.get('blog'));
     }
 

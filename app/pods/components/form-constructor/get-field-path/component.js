@@ -6,7 +6,6 @@ export default Ember.Component.extend({
     this._super(...arguments);
   },
 
-
   componentName: Ember.computed(function () {
     return `form-constructor/${this.get('field')['type']}`;
   }),
@@ -14,6 +13,10 @@ export default Ember.Component.extend({
   actions: {
     registerForm(form){
       this.sendAction('register', form);
+    },
+
+    unregisterForm(form){
+      this.sendAction('unregister', form);
     }
   }
 

@@ -3,9 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   actions: {
 
-    buttonClicked(blogTypeParams) {
-      this.sendAction('action', blogTypeParams);
+    createBlogType(blogType){
+      this.get('item').name = blogType.name;
+      this.sendAction('action', this.get('item'));
     }
-
   }
 });

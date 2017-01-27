@@ -1,1 +1,6 @@
-{{component componentName field=field register='registerForm'}}
+{{#if field.errors.firstObject}}
+  {{tooltip-on-component    side='top'
+                            class='tooltip-error' event='none'
+                            isShown=true text=field.errors.firstObject}}
+{{/if}}
+{{component componentName field=field register='registerForm' unregister='unregisterForm'}}

@@ -2,8 +2,7 @@ import Ember from 'ember';
 import BaseForm from '../base-form/component';
 
 export default BaseForm.extend({
-  store: Ember.inject.service(),
-
+  store:  Ember.inject.service(),
   obj:    {},
   option: undefined,
 
@@ -18,14 +17,13 @@ export default BaseForm.extend({
 
   actions: {
     chooseType(obj, ignore, option){
-      const selected             = this.set('option', option);
-      obj[this.get('field.key')] = selected;
-      this.set('obj', obj);
+      if (option) {
+        this.set('currentValue', 'true');
+        this.set('option', option);
+        obj[this.get('field.key')] = option;
+        this.set('keyValue', obj);
+      }
     }
   },
-
-  getKeyValue(){
-    return (this.get('obj'));
-  }
 
 });

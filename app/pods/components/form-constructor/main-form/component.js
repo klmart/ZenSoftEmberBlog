@@ -2,14 +2,13 @@ import Ember from 'ember';
 import FormTypes from '../../../../consts/formTypes';
 
 export default Ember.Component.extend({
-  item:   {},
+  item:            {},
   registeredForms: [],
-  formParams:undefined,
+  formParams:      undefined,
 
   init(){
     this._super(...arguments);
     this.set('formParams', FormTypes[`${this.get('formType')}`]);
-    console.log(this.get('formParams'));
   },
 
   actions: {
@@ -18,15 +17,30 @@ export default Ember.Component.extend({
           .pushObject(form);
     },
 
+    unregisterForm(form){
+      this.get('registeredForms')
+          .removeObject(form);
+    },
+
     save(){
+      const errors = [];
       this.get('registeredForms')
           .forEach((form) => {
+
+            form.checkValidations();
+
+            if (form.get('isValid')) {
+              errors.push(form.get('isValid'));
+            }
             let formHash = form.getKeyValue();
             for (let key in formHash) {
               this.get('item')[key] = formHash[key];
             }
           });
-      this.sendAction('action', this.get('item'));
+
+      if (!errors.length) {
+        this.sendAction('action', this.get('item'));
+      }
     }
   }
 

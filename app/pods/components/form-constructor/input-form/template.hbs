@@ -1,6 +1,7 @@
 <div class="form-group">
   <label class="col-sm-2 control-label">{{field.label}}</label>
   <div class="col-sm-10">
-    {{input type="text" key-press="check" class="form-control" value=title placeholder=field.placeholder}}
+    {{one-way-input  class="form-control" value=currentValue placeholder=field.placeholder
+                     update=(action 'createObject' (mut currentValue ))}}
   </div>
 </div>
