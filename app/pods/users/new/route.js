@@ -6,8 +6,8 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    saveUser(newUser){
-      newUser.save()
+    saveUser(userParams){
+      userParams.save()
              .then(() => this.transitionTo('blogs'));
     },
 

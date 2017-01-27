@@ -11,6 +11,9 @@ export default Ember.Component.extend({
     return this.get('field.errors.firstObject')
   }),
 
+  isEmail: Ember.computed.match('currentValue', /^.+@.+\..+$/),
+
+
   init(){
     this._super(...arguments);
     this.sendAction('register', this);

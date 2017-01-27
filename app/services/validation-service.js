@@ -45,6 +45,16 @@ export default Ember.Service.extend({
     }
   },
 
+  emailMask(field, currentValue){
+    const error      = 'Enter your email address!!!';
+    const isValid = /^.+@.+\..+$/;
+    if(!isValid.test(currentValue)){
+      this.get('validationErrors')['emailMask'] = error;
+    } else {
+      delete this.get('validationErrors')['emailMask'];
+    }
+  },
+
   fillErrorsArray(field, errors){
     let errorsArray = [];
     Ember.set(field, 'errors', []);
@@ -63,7 +73,6 @@ export default Ember.Service.extend({
       this[key.toString()](field, currentValue);
     }
     this['fillErrorsArray'](field, this.get('validationErrors'));
-
   },
 
 });
