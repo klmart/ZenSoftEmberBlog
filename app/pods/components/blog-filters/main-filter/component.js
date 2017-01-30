@@ -17,7 +17,7 @@ export default Ember.Component.extend({
       this.get('registeredFilters')
           .forEach((filter) => {
             filter.run();
-          })
+          });
     },
     registerFilter(filter){
       this.get('registeredFilters')

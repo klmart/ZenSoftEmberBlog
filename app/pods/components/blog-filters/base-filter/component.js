@@ -15,7 +15,7 @@ export default Ember.Component.extend({
 
   init(){
     this._super(...arguments);
-    this.sendAction('register', this)
+    this.sendAction('register', this);
   },
 
   actions: {

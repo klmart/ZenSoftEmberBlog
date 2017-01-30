@@ -7,7 +7,7 @@ export default BaseForm.extend({
   option: undefined,
 
   modelTitle: Ember.computed(function () {
-    return this.get(field.modelTitle);
+    return this.get('field'.modelTitle);
   }),
 
   selectList: Ember.computed(function () {

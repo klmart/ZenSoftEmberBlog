@@ -34,7 +34,6 @@ export default LSAdapter.extend({
     this.persistData(type, namespaceRecords);
 
     if (Ember.get(snapshot, 'adapterOptions.flashMessage')) {
-      console.log('udapte');
       this.get('flashMessages')
           .add({
             message: `${type.modelName.capitalize()} has been updated!`,
@@ -52,7 +51,7 @@ export default LSAdapter.extend({
 
     this.persistData(type, namespaceRecords);
 
-    let modelName = snapshot.modelName;
+    const modelName = snapshot.modelName;
 
     if (Ember.get(snapshot, 'adapterOptions.flashMessage')) {
       this.get('flashMessages')

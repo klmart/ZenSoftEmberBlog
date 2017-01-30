@@ -4,20 +4,25 @@ export default Ember.Component.extend({
   validService: Ember.inject.service('validation-service'),
 
   keyValue:     undefined,
-  key:          undefined,
   currentValue: '',
 
   isValid: Ember.computed('field.errors.firstObject', function () {
-    return this.get('field.errors.firstObject')
+    return this.get('field.errors.firstObject');
   }),
 
   isEmail: Ember.computed.match('currentValue', /^.+@.+\..+$/),
 
-
   init(){
     this._super(...arguments);
     this.sendAction('register', this);
-    this.set('key', this.get('field.key'));
+    if (this.get('item')) {
+      if (this.get('item')
+              .get(this.get('field.key'))) {
+        console.log(2);
+        this.set('currentValue', this.get('item')
+                                     .get(this.get('field.key')));
+      }
+    }
     delete this.get('field')['errors'];
   },
 
@@ -26,7 +31,8 @@ export default Ember.Component.extend({
         .validate(this.get('field'), this.get('currentValue'));
   },
 
-  willDestroyElement() {
+  willDestroyElement()
+  {
     this.sendAction('unregister', this);
   },
 
@@ -35,10 +41,11 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    createObject(ignore, currentValue){
+    createObject(ignore, currentValue)
+    {
       this.set('currentValue', currentValue);
-      let fieldParams              = {};
-      fieldParams[this.get('key')] = currentValue;
+      let fieldParams                    = {};
+      fieldParams[this.get('field.key')] = currentValue;
       this.set('keyValue', fieldParams);
 
       this.get('validService')

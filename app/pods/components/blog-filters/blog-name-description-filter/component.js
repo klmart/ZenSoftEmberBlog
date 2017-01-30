@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import BaseFilter from '../base-filter/component';
 
 export default BaseFilter.extend({

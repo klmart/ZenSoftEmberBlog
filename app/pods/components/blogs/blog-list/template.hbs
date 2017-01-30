@@ -16,10 +16,12 @@
           </div>
         {{/link-to}}
         <div class="caption">
-          {{#link-to 'posts.index' blog.id }}<h3>{{blog.name}}</h3>{{/link-to}}
+          <div class="blog-title">
+            {{#link-to 'posts.index' blog.id }}<h3>{{blog.name}}</h3>{{/link-to}}
+          </div>
           <div class="blog-description">
             <p>{{blog.description}}</p>
-            <p>{{blog.blogType.name}}</p>
+            <p>Категория: {{blog.blogType.name}}</p>
           </div>
           <div class="panel-footer">
             <p>Автор: {{blog.user.email}}</p>
@@ -30,7 +32,6 @@
                 {{#link-to 'blogs.edit' blog.id class='btn btn-primary'}}Edit{{/link-to}}
               {{/check-permissions}}
               {{#check-permissions permissionCode="canDeleteAllBlogs"}}
-                <!--<button class="btn btn-danger" {{!action 'deleteBlog' blog}}>Delete</button>-->
                 {{#link-to 'blogs.edit' blog.id class="glyphicon glyphicon-edit"}}{{/link-to}}
                 <span class="glyphicon glyphicon-remove" {{action 'deleteBlog' blog}}></span>
 

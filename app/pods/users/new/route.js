@@ -7,7 +7,15 @@ export default Ember.Route.extend({
 
   actions: {
     saveUser(userParams){
-      userParams.save()
+      console.log(this.controller.get('model'));
+
+      const model = this.controller.get('model');
+      model.set('email', userParams.email);
+      model.set('password', userParams.password);
+      model.set('firstName', userParams.firstName);
+      model.set('lastName', userParams.lastName);
+
+      model.save()
              .then(() => this.transitionTo('blogs'));
     },
 

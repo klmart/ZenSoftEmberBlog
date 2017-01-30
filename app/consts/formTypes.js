@@ -1,7 +1,5 @@
 const formTypes = {
-  userNew:     {
-    title:       'Create USer',
-    buttonLabel: 'Create User',
+  user:     {
     fields:      [
       {
         label:       'Email*',
@@ -11,7 +9,6 @@ const formTypes = {
         placeholder: 'example@gmail.com',
         validations: {
           emailMask: true,
-          // isEmpty:   false,
         }
       },
       {
@@ -22,7 +19,7 @@ const formTypes = {
         placeholder: 'Enter Password',
         validations: {
           isEmpty:   false,
-          minLength: 6,
+          minLength: 1,
           maxLength: 14
         }
       },
@@ -46,8 +43,8 @@ const formTypes = {
       },
     ]
   },
-  blogTypeNew: {
-    title:       'Create Blog type',
+
+  blogType: {
     buttonLabel: 'Save Blog Type',
     fields:      [
       {
@@ -63,7 +60,8 @@ const formTypes = {
       },
     ]
   },
-  blogNew:     {
+
+  blog:     {
     title:       'Create Blog',
     buttonLabel: 'Save blog',
     fields:      [
@@ -75,7 +73,7 @@ const formTypes = {
         validations: {
           isEmpty:   false,
           minLength: 5,
-          maxLength: 10,
+          maxLength: 500,
         }
       },
       {
@@ -86,7 +84,7 @@ const formTypes = {
         validations: {
           isEmpty:   true,
           minLength: 0,
-          maxLength: 120,
+          maxLength: 300,
         }
       },
       {
@@ -105,7 +103,7 @@ const formTypes = {
     ]
   },
 
-  permissionNew: {
+  permission: {
     title:       'Create Permission',
     buttonLabel: 'Save Permission',
     fields:      [
@@ -117,7 +115,7 @@ const formTypes = {
         validations: {
           isEmpty:   false,
           minLength: 5,
-          maxLength: 10
+          maxLength: 20
         }
       },
       {
@@ -128,7 +126,7 @@ const formTypes = {
         validations: {
           isEmpty:   false,
           minLength: 3,
-          maxLength: 10
+          maxLength: 20
         }
       }
     ]

@@ -23,7 +23,7 @@ export default Authenticated.extend({
              .then((savedPost) => {
                const blog = savedPost.get('blog');
                blog.get('posts').then((posts) => {
-                 posts.pushObject(savedPost)
+                 posts.pushObject(savedPost);
                  this.userService.userAddObject(savedPost)
                      .then(() => {
                        blog.save()
@@ -31,7 +31,7 @@ export default Authenticated.extend({
                              this.transitionTo('posts');
                            });
                      });
-               })
+               });
              });
     },
 

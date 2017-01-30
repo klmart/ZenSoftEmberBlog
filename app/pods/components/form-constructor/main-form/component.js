@@ -2,7 +2,7 @@ import Ember from 'ember';
 import FormTypes from '../../../../consts/formTypes';
 
 export default Ember.Component.extend({
-  item:            {},
+  object:            {},
   registeredForms: [],
   formParams:      undefined,
 
@@ -34,12 +34,12 @@ export default Ember.Component.extend({
             }
             let formHash = form.getKeyValue();
             for (let key in formHash) {
-              this.get('item')[key] = formHash[key];
+              this.get('object')[key] = formHash[key];
             }
           });
 
       if (!errors.length) {
-        this.sendAction('action', this.get('item'));
+        this.sendAction('action', this.get('object'));
       }
     }
   }
